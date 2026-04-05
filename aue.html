@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Tasks AI - Chat Assistant</title>
+    <meta name="description" content="Chat with Quantum Tasks AI - Get instant support for AI and Cybersecurity solutions">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 0;
+            margin: 0;
+            background-color: #f8fafc;
+        }
+
+        .chat-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .iframe-container {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        #chatWidget {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .chat-main {
+                padding: 10px;
+            }
+        }
+
+        /* Override eself.ai home button styling */
+        .custom-home-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #667eea !important;
+            color: white !important;
+            border: none !important;
+            padding: 8px 16px !important;
+            border-radius: 6px !important;
+            cursor: pointer !important;
+            z-index: 9999 !important;
+            font-weight: 500 !important;
+            font-size: 14px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+        }
+
+        .custom-home-overlay:hover {
+            background: #5a6fd8 !important;
+            transform: translateY(-1px) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="hdr">
+        <div class="hdr-inner">
+            <a href="index.html" class="hdr-logo">
+                <img src="img/logo.png" alt="Quantum Tasks AI">
+            </a>
+            <nav class="hdr-nav" id="hdr-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="digital-branding.html">AI Digital Branding</a>
+                <a href="https://blog.quantumtaskai.com/">Blog</a>
+                <a href="https://ai-chat.quantumtaskai.com/">AI Chat</a>
+                <a href="https://ai.quantumtaskai.com/agents/">AI Marketplace</a>
+            </nav>
+            <button class="hdr-burger" id="hdr-burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="hdr-nav">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                    <path d="M3 5h16M3 11h16M3 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="chat-main">
+        <div class="chat-container">
+            <div class="iframe-container">
+                <iframe
+                    src="https://meet.eself.ai/108315232292977188132/talk-to-agent?aiclid=3hIpww4j&flow_id=agent-5"
+                    id="chatWidget"
+                    frameborder="0"
+                    scrolling="yes"
+                    allowtransparency="true"
+                    allow="camera; microphone; autoplay; encrypted-media; fullscreen"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
+    <script>
+        const iframe = document.getElementById('chatWidget');
+        let initialUrl = iframe.src;
+        let callStarted = false;
+
+        // Listen for messages from the iframe
+        window.addEventListener('message', function(event) {
+            console.log('Received message:', event.data, 'from:', event.origin);
+
+            if (event.origin === 'https://meet.eself.ai') {
+                // Check for various call end patterns
+                if (event.data && typeof event.data === 'object') {
+                    const data = event.data;
+
+                    // Check for call end indicators that should show thank you screen
+                    if (data.type === 'call-ended' ||
+                        data.type === 'session-ended' ||
+                        data.action === 'end-call' ||
+                        data.event === 'call-end' ||
+                        data.status === 'ended' ||
+                        data.message === 'call-ended' ||
+                        (data.type === 'navigation' && data.url && data.url.includes('thank'))) {
+
+                        console.log('Call ended detected, showing thank you overlay...');
+
+                        // Update iframe to thank you page
+                        iframe.src = 'https://meet.eself.ai/108315232292977188132/thank-you';
+
+                        // Show our overlay button
+                        setTimeout(function() {
+                            window.showThankYouButton = true;
+                            addHomeButtonOverlay();
+                        }, 1000);
+                    }
+
+                    // Track when call actually starts
+                    if (data.type === 'call-started' || data.action === 'call-start') {
+                        callStarted = true;
+                        console.log('Call started');
+                    }
+
+                    // Check for thank you navigation
+                    if ((data.type === 'navigation' && data.url && data.url.includes('thank')) ||
+                        data.type === 'thank-you' || data.action === 'show-thank-you') {
+                        console.log('Thank you navigation detected');
+                        window.showThankYouButton = true;
+                        setTimeout(addHomeButtonOverlay, 500);
+                    }
+                }
+
+                // Handle string messages too
+                if (typeof event.data === 'string') {
+                    const msg = event.data.toLowerCase();
+                    if (msg.includes('end') || msg.includes('finish') || msg.includes('complete') || msg.includes('thank')) {
+                        console.log('Thank you/end message detected:', msg);
+                        window.showThankYouButton = true;
+                        setTimeout(addHomeButtonOverlay, 500);
+                    }
+                }
+            }
+        });
+
+        // Monitor iframe URL changes (limited by CORS but worth trying)
+        function monitorIframeChanges() {
+            try {
+                const currentUrl = iframe.contentWindow.location.href;
+                if (currentUrl !== initialUrl) {
+                    console.log('Iframe URL changed:', currentUrl);
+                    // Check if URL indicates call ended
+                    if (currentUrl.includes('end') || currentUrl.includes('finish') || currentUrl.includes('complete')) {
+                        console.log('Call ended via URL change, redirecting...');
+                        setTimeout(function() {
+                            window.location.href = 'index.html';
+                        }, 1500);
+                    }
+                }
+            } catch (e) {
+                // CORS will likely block this
+            }
+        }
+
+        // Check every few seconds
+        setInterval(monitorIframeChanges, 3000);
+
+        // Listen for beforeunload on the main window (user closes tab/browser)
+        window.addEventListener('beforeunload', function() {
+            if (callStarted) {
+                // Don't redirect if user is closing the browser/tab intentionally
+                return;
+            }
+        });
+
+        // Function to overlay existing home button only on thank you screen
+        function addHomeButtonOverlay() {
+            // Check if we're on the thank you screen using multiple methods
+            let isThankYouScreen = false;
+
+            // Method 1: Check iframe src URL
+            const currentSrc = iframe.src || '';
+            console.log('Current iframe src:', currentSrc);
+
+            if (currentSrc.includes('thank-you') || currentSrc.includes('thank_you')) {
+                isThankYouScreen = true;
+                console.log('Thank You screen detected via iframe src');
+            }
+
+            // Method 2: Try to check iframe content (will likely fail due to CORS)
+            try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (iframeDoc && iframeDoc.body) {
+                    const bodyText = iframeDoc.body.innerText || '';
+                    if (bodyText.includes('Thank You!') || bodyText.includes('Thank you!')) {
+                        isThankYouScreen = true;
+                        console.log('Thank You screen detected via content');
+                    }
+                }
+            } catch (e) {
+                console.log('Cannot access iframe content due to CORS');
+            }
+
+            // Method 3: Try to check iframe window location (will likely fail due to CORS)
+            try {
+                const iframeUrl = iframe.contentWindow.location.href || '';
+                console.log('Iframe URL:', iframeUrl);
+                if (iframeUrl.includes('thank-you') || iframeUrl.includes('thank_you') ||
+                    iframeUrl.includes('complete') || iframeUrl.includes('finished')) {
+                    isThankYouScreen = true;
+                    console.log('Thank You screen detected via URL');
+                }
+            } catch (urlError) {
+                console.log('Cannot check iframe URL due to CORS');
+            }
+
+            // Method 4: Simple fallback - show button after some time (temporary for testing)
+            const now = Date.now();
+            if (!window.chatStartTime) {
+                window.chatStartTime = now;
+            }
+            // Show button after 30 seconds as fallback (you can remove this later)
+            if (now - window.chatStartTime > 30000) {
+                console.log('Showing button after 30 seconds (fallback)');
+                isThankYouScreen = true;
+            }
+
+            // Remove existing overlay button first
+            const existingButton = document.querySelector('.custom-home-overlay');
+            if (existingButton) {
+                existingButton.remove();
+            }
+
+            // Only add button if on thank you screen
+            if (!isThankYouScreen) {
+                return;
+            }
+
+            // Create our custom home button
+            const homeButton = document.createElement('a');
+            homeButton.innerHTML = 'Home';
+            homeButton.href = 'index.html';
+            homeButton.className = 'custom-home-overlay';
+
+            // Position it to overlay the iframe's bottom center (where eself.ai Home button is)
+            homeButton.style.cssText = `
+                position: absolute;
+                bottom: 130px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #1a237e;
+                color: white;
+                border: none;
+                padding: 12px 32px;
+                border-radius: 24px;
+                cursor: pointer;
+                z-index: 9999;
+                font-weight: 600;
+                font-size: 16px;
+                box-shadow: 0 4px 16px rgba(26, 35, 126, 0.4);
+                text-decoration: none;
+                display: inline-block;
+                transition: all 0.2s ease;
+                font-family: inherit;
+                width: 120px;
+                text-align: center;
+                height: 48px;
+                line-height: 24px;
+            `;
+
+            homeButton.onmouseover = function() {
+                this.style.background = '#283593';
+                this.style.transform = 'translateX(-50%) translateY(-2px)';
+                this.style.boxShadow = '0 6px 20px rgba(26, 35, 126, 0.5)';
+            };
+
+            homeButton.onmouseout = function() {
+                this.style.background = '#1a237e';
+                this.style.transform = 'translateX(-50%)';
+                this.style.boxShadow = '0 4px 16px rgba(26, 35, 126, 0.4)';
+            };
+
+            // Add to iframe container so it overlays the iframe
+            const iframeContainer = document.querySelector('.iframe-container');
+            iframeContainer.style.position = 'relative';
+            iframeContainer.appendChild(homeButton);
+        }
+
+        // Try to override eself.ai's existing home button
+        function overrideEselfHomeButton() {
+            try {
+                // This will be blocked by CORS, but worth trying
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+                // Look for common home button selectors
+                const homeButtons = iframeDoc.querySelectorAll(
+                    'a[href*="home"], button[class*="home"], [class*="back"], [aria-label*="home"], [title*="home"]'
+                );
+
+                homeButtons.forEach(button => {
+                    // Override the button's functionality
+                    button.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.parent.location.href = 'index.html';
+                        return false;
+                    };
+
+                    // Change the text if it's visible
+                    if (button.textContent) {
+                        button.textContent = 'Home';
+                    }
+
+                    // Override styling
+                    button.style.background = '#667eea';
+                    button.style.color = 'white';
+                    button.style.border = 'none';
+                    button.style.padding = '8px 16px';
+                    button.style.borderRadius = '6px';
+                });
+
+            } catch (e) {
+                console.log('Cannot access iframe content due to CORS');
+            }
+        }
+
+        // Monitor for Thank You screen and add button when detected
+        function monitorForThankYouScreen() {
+            addHomeButtonOverlay();
+        }
+
+        // Check for Thank You screen periodically
+        setInterval(monitorForThankYouScreen, 2000);
+
+        // Also check when iframe loads
+        iframe.onload = function() {
+            setTimeout(monitorForThankYouScreen, 1000);
+        };
+
+        // Initial check
+        setTimeout(monitorForThankYouScreen, 3000);
+    </script>
+</body>
+</html>

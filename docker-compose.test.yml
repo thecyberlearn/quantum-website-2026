@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  quantumtaskai-website:
+    build: .
+    container_name: quantumtaskai-website-test
+    restart: unless-stopped
+    ports:
+      - "8081:80"  # Use port 8081 to avoid conflicts
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
