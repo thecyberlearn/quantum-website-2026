@@ -10,177 +10,121 @@
   if (document.getElementById('sh-header')) return;
 
   // ─── Config: update nav links here ──────────────────────────────
+  var LOGO_URL  = 'https://quantumtaskai.com/img/logo.png';
+  var HOME_URL  = 'https://quantumtaskai.com';
+
   var NAV_LINKS = [
-    { label: 'Home',              url: 'https://quantumtaskai.com' },
+    { label: 'Home',               url: 'https://quantumtaskai.com' },
     { label: 'AI Digital Branding', url: 'https://quantumtaskai.com/digital-branding.html' },
-    { label: 'Blog',              url: 'https://blog.quantumtaskai.com/' },
+    { label: 'Blog',               url: 'https://blog.quantumtaskai.com/' },
   ];
 
-  // ─── Styles ──────────────────────────────────────────────────────
+  // ─── Styles (matches static site css/style.css header) ──────────
   var css = `
-    :root {
-      --sh-bg:     #0a0e1a;
-      --sh-accent: #3b82f6;
-      --sh-text:   #ffffff;
-    }
-
     #sh-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      height: 64px;
-      background: var(--sh-bg);
-      z-index: 99999;
+      z-index: 1030;
       box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
     }
 
     .sh-inner {
       max-width: 1200px;
       margin: 0 auto;
-      height: 100%;
-      padding: 0 24px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .sh-logo {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--sh-accent);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
-    }
-
-    .sh-logo:hover {
-      color: var(--sh-accent);
-      opacity: 0.85;
+    .sh-logo img {
+      height: 60px;
+      width: auto;
+      display: block;
     }
 
     .sh-nav {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 4px;
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
     .sh-nav a {
-      color: var(--sh-text);
-      text-decoration: none;
-      font-size: 0.92rem;
+      color: #6b7280;
+      font-size: 15px;
       font-weight: 500;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 6px;
-      transition: background 0.18s, color 0.18s;
+      text-decoration: none;
       white-space: nowrap;
+      transition: color .15s, background .15s;
     }
 
     .sh-nav a:hover {
-      background: rgba(59, 130, 246, 0.15);
-      color: var(--sh-accent);
+      color: #3b82f6;
+      background: rgba(59,130,246,0.05);
     }
 
     .sh-nav a.sh-active {
-      color: var(--sh-accent);
-      background: rgba(59, 130, 246, 0.12);
+      color: #1d4ed8;
+      background: rgba(59,130,246,0.08);
+      font-weight: 600;
+    }
+
+    .sh-nav a:focus-visible {
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
     }
 
     /* ── Hamburger ── */
     .sh-burger {
       display: none;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 5px;
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
       background: none;
       border: none;
-      padding: 4px;
+      cursor: pointer;
+      padding: 8px;
       border-radius: 6px;
-      transition: background 0.18s;
+      color: #6b7280;
+      transition: background .15s;
     }
 
-    .sh-burger:hover {
-      background: rgba(255,255,255,0.08);
-    }
-
-    .sh-burger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--sh-text);
-      border-radius: 2px;
-      transition: transform 0.22s, opacity 0.22s;
-    }
-
-    .sh-burger.sh-open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-    .sh-burger.sh-open span:nth-child(2) {
-      opacity: 0;
-    }
-    .sh-burger.sh-open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
+    .sh-burger:hover { background: rgba(59,130,246,0.05); }
 
     /* ── Mobile menu ── */
-    .sh-mobile-menu {
-      display: none;
-      position: absolute;
-      top: 64px;
-      left: 0;
-      width: 100%;
-      background: var(--sh-bg);
-      padding: 12px 0 20px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    }
-
-    .sh-mobile-menu.sh-open {
-      display: block;
-    }
-
-    .sh-mobile-menu a {
-      display: block;
-      color: var(--sh-text);
-      text-decoration: none;
-      font-size: 0.98rem;
-      font-weight: 500;
-      padding: 12px 28px;
-      transition: background 0.15s, color 0.15s;
-    }
-
-    .sh-mobile-menu a:hover {
-      background: rgba(59, 130, 246, 0.12);
-      color: var(--sh-accent);
-    }
-
-    .sh-mobile-menu a.sh-active {
-      color: var(--sh-accent);
-    }
-
     @media (max-width: 768px) {
-      #sh-header {
-        height: 56px;
-      }
+      .sh-burger { display: flex; }
+
+      .sh-inner { position: relative; }
+
+      .sh-logo img { height: 40px; }
 
       .sh-nav {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-top: 1px solid #e5e7eb;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 16px;
+        gap: 2px;
       }
 
-      .sh-burger {
-        display: flex;
-      }
+      .sh-nav.sh-open { display: flex; }
 
-      .sh-mobile-menu {
-        top: 56px;
-      }
+      .sh-nav a { padding: 10px 14px; }
     }
   `;
 
@@ -193,72 +137,69 @@
   // ─── Detect active link ──────────────────────────────────────────
   var currentUrl = window.location.href;
 
-  function buildNavItems(isMobile) {
+  function isActive(url) {
+    if (url === HOME_URL) {
+      return currentUrl === url || currentUrl === url + '/' || currentUrl === url + '/index.html';
+    }
+    return currentUrl.indexOf(url) === 0;
+  }
+
+  function buildNavItems() {
     return NAV_LINKS.map(function (link) {
-      var isActive = currentUrl === link.url ||
-                     (link.url !== 'https://quantumtaskai.com' && currentUrl.indexOf(link.url) === 0);
-      var activeClass = isActive ? ' sh-active' : '';
-      if (isMobile) {
-        return '<a href="' + link.url + '" class="' + activeClass.trim() + '">' + link.label + '</a>';
-      }
-      return '<li><a href="' + link.url + '" class="' + activeClass.trim() + '">' + link.label + '</a></li>';
+      var cls = isActive(link.url) ? 'sh-active' : '';
+      return '<li><a href="' + link.url + '"' + (cls ? ' class="' + cls + '"' : '') + '>' + link.label + '</a></li>';
     }).join('');
   }
 
   // ─── Build HTML ──────────────────────────────────────────────────
-  var headerHTML = `
-    <header id="sh-header">
-      <div class="sh-inner">
-        <a href="https://quantumtaskai.com" class="sh-logo">Quantum Tasks AI</a>
-        <nav aria-label="Main navigation">
-          <ul class="sh-nav">` + buildNavItems(false) + `</ul>
-        </nav>
-        <button class="sh-burger" id="sh-burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="sh-mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <nav class="sh-mobile-menu" id="sh-mobile-menu" aria-label="Mobile navigation">
-        ` + buildNavItems(true) + `
-      </nav>
-    </header>
-  `;
+  var headerHTML =
+    '<header id="sh-header">' +
+      '<div class="sh-inner">' +
+        '<a href="' + HOME_URL + '" class="sh-logo">' +
+          '<img src="' + LOGO_URL + '" alt="Quantum Tasks AI" height="60">' +
+        '</a>' +
+        '<nav aria-label="Main navigation">' +
+          '<ul class="sh-nav" id="sh-nav">' + buildNavItems() + '</ul>' +
+        '</nav>' +
+        '<button class="sh-burger" id="sh-burger" aria-label="Toggle navigation" aria-expanded="false">' +
+          '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">' +
+            '<path d="M3 5h16M3 11h16M3 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+          '</svg>' +
+        '</button>' +
+      '</div>' +
+    '</header>';
 
   // ─── Inject header at top of body ───────────────────────────────
   document.body.insertAdjacentHTML('afterbegin', headerHTML);
 
   // ─── Hamburger logic ─────────────────────────────────────────────
   var burger = document.getElementById('sh-burger');
-  var mobileMenu = document.getElementById('sh-mobile-menu');
+  var nav    = document.getElementById('sh-nav');
 
-  function openMenu() {
-    burger.classList.add('sh-open');
-    mobileMenu.classList.add('sh-open');
-    burger.setAttribute('aria-expanded', 'true');
-  }
-
-  function closeMenu() {
-    burger.classList.remove('sh-open');
-    mobileMenu.classList.remove('sh-open');
-    burger.setAttribute('aria-expanded', 'false');
-  }
-
-  burger.addEventListener('click', function (e) {
-    e.stopPropagation();
-    mobileMenu.classList.contains('sh-open') ? closeMenu() : openMenu();
+  burger.addEventListener('click', function () {
+    var open = nav.classList.toggle('sh-open');
+    burger.setAttribute('aria-expanded', open);
   });
 
-  // Close on outside click
   document.addEventListener('click', function (e) {
     if (!document.getElementById('sh-header').contains(e.target)) {
-      closeMenu();
+      nav.classList.remove('sh-open');
+      burger.setAttribute('aria-expanded', 'false');
     }
   });
 
-  // Close on ESC
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeMenu();
+    if (e.key === 'Escape') {
+      nav.classList.remove('sh-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  nav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      nav.classList.remove('sh-open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
   });
 
   console.log('Shared header loaded ✓');
