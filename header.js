@@ -10,7 +10,11 @@
   if (document.getElementById('sh-header')) return;
 
   // ─── Config: update nav links here ──────────────────────────────
-  var LOGO_URL  = 'https://quantumtaskai.com/img/logo.png';
+  var LOGO_URL  = (function() {
+    // Works locally and on live domain without hardcoding
+    var base = window.location.origin;
+    return base + '/img/logo.png';
+  })();
   var HOME_URL  = 'https://quantumtaskai.com';
 
   var NAV_LINKS = [
