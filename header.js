@@ -10,16 +10,13 @@
   if (document.getElementById('sh-header')) return;
 
   // ─── Config: update nav links here ──────────────────────────────
-  var LOGO_URL  = (function() {
-    // Works locally and on live domain without hardcoding
-    var base = window.location.origin;
-    return base + '/img/logo.png';
-  })();
-  var HOME_URL  = 'https://quantumtaskai.com';
+  var LOGO_URL = 'https://quantumtaskai.com/img/logo.png'; // always absolute — works cross-domain
+  var HOME_URL = 'https://quantumtaskai.com';
 
   var NAV_LINKS = [
     { label: 'Home',               url: 'https://quantumtaskai.com' },
     { label: 'AI Digital Branding', url: 'https://quantumtaskai.com/digital-branding.html' },
+    { label: 'Site Auditor',       url: 'https://audit.quantumtaskai.com' },
     { label: 'Blog',               url: 'https://blog.quantumtaskai.com/' },
   ];
 
@@ -139,13 +136,21 @@
   document.head.appendChild(styleEl);
 
   // ─── Detect active link ──────────────────────────────────────────
-  var currentUrl = window.location.href;
+  var currentOrigin = window.location.origin; // e.g. https://blog.quantumtaskai.com
+  var currentUrl    = window.location.href;
 
   function isActive(url) {
-    if (url === HOME_URL) {
-      return currentUrl === url || currentUrl === url + '/' || currentUrl === url + '/index.html';
-    }
-    return currentUrl.indexOf(url) === 0;
+    try {
+      var linkOrigin = new URL(url).origin;
+      // If the link is a subdomain root (e.g. https://blog.quantumtaskai.com/)
+      // match by origin so any page on that subdomain highlights it
+      if (linkOrigin !== HOME_URL && linkOrigin === currentOrigin) return true;
+      // For same-domain links match by full URL prefix
+      if (url === HOME_URL || url === HOME_URL + '/') {
+        return currentOrigin === HOME_URL;
+      }
+      return currentUrl.indexOf(url) === 0;
+    } catch (e) { return false; }
   }
 
   function buildNavItems() {
@@ -160,12 +165,12 @@
     '<header id="sh-header">' +
       '<div class="sh-inner">' +
         '<a href="' + HOME_URL + '" class="sh-logo">' +
-          '<img src="' + LOGO_URL + '" alt="Quantum Tasks AI" height="60">' +
+          '<img src="' + LOGO_URL + '" alt="Quantum Tasks AI" height="60" loading="eager" fetchpriority="high">' +
         '</a>' +
         '<nav aria-label="Main navigation">' +
           '<ul class="sh-nav" id="sh-nav">' + buildNavItems() + '</ul>' +
         '</nav>' +
-        '<button class="sh-burger" id="sh-burger" aria-label="Toggle navigation" aria-expanded="false">' +
+        '<button class="sh-burger" id="sh-burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sh-nav">' +
           '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">' +
             '<path d="M3 5h16M3 11h16M3 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
           '</svg>' +
@@ -174,36 +179,46 @@
     '</header>';
 
   // ─── Inject header at top of body ───────────────────────────────
-  document.body.insertAdjacentHTML('afterbegin', headerHTML);
+  // Guard: if script runs before <body> exists (e.g. loaded from <head>),
+  // wait for DOM ready instead of crashing
+  function inject() {
+    if (document.body) {
+      document.body.insertAdjacentHTML('afterbegin', headerHTML);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inject);
+  } else {
+    inject();
+  }
 
   // ─── Hamburger logic ─────────────────────────────────────────────
   var burger = document.getElementById('sh-burger');
   var nav    = document.getElementById('sh-nav');
 
+  // Guard: bail out cleanly if injection failed for any reason
+  if (!burger || !nav) return;
+
+  function closeMenu() {
+    nav.classList.remove('sh-open');
+    burger.setAttribute('aria-expanded', 'false'); // always string
+  }
+
   burger.addEventListener('click', function () {
     var open = nav.classList.toggle('sh-open');
-    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-expanded', String(open)); // string 'true'/'false'
   });
 
   document.addEventListener('click', function (e) {
-    if (!document.getElementById('sh-header').contains(e.target)) {
-      nav.classList.remove('sh-open');
-      burger.setAttribute('aria-expanded', 'false');
-    }
+    if (!document.getElementById('sh-header').contains(e.target)) closeMenu();
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      nav.classList.remove('sh-open');
-      burger.setAttribute('aria-expanded', 'false');
-    }
+    if (e.key === 'Escape') closeMenu();
   });
 
   nav.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      nav.classList.remove('sh-open');
-      burger.setAttribute('aria-expanded', 'false');
-    });
+    a.addEventListener('click', closeMenu);
   });
 
   console.log('Shared header loaded ✓');
