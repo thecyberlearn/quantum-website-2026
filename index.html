@@ -1,572 +1,1350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Tasks AI - AI & Task Automation Solutions</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum Tasks AI — AI & Cybersecurity Solutions</title>
+  <meta name="description" content="AI-powered automation, cybersecurity consulting, and digital branding for modern businesses. Based in Dubai, UAE." />
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Quantum Tasks AI - Advanced AI platform for automation and intelligent task management. Access powerful AI agents for your business needs.">
-    <meta name="keywords" content="AI, artificial intelligence, automation, task management, AI agents, quantum computing">
-    <meta name="author" content="Quantum Tasks AI">
+  <style>
+    /* ── Reset ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Open Graph Meta Tags for Rich Link Previews -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Quantum Tasks AI">
-    <meta property="og:title" content="Quantum Tasks AI - AI & Task Automation Solutions">
-    <meta property="og:description" content="Advanced AI agent marketplace for automation, analysis, and productivity. Access powerful AI tools for business and personal use.">
-    <meta property="og:url" content="https://quantumtaskai.com">
-    <meta property="og:image" content="https://quantumtaskai.com/img/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Quantum Tasks AI - AI Agent Marketplace">
+    :root {
+      --navy:    #0a0f1e;
+      --navy2:   #111827;
+      --navy3:   #1e293b;
+      --indigo:  #6366f1;
+      --indigo2: #818cf8;
+      --violet:  #a855f7;
+      --orange:  #f97316;
+      --orange2: #fb923c;
+      --cyan:    #06b6d4;
+      --green:   #22c55e;
+      --white:   #ffffff;
+      --gray50:  #f8fafc;
+      --gray100: #f1f5f9;
+      --gray200: #e2e8f0;
+      --gray400: #94a3b8;
+      --gray500: #64748b;
+      --gray700: #334155;
+      --text:    #0f172a;
+      --r:       12px;
+      --shadow:  0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.14);
+    }
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@quantumtaskai">
-    <meta name="twitter:title" content="Quantum Tasks AI - AI & Task Automation Solutions">
-    <meta name="twitter:description" content="Advanced AI agent marketplace for automation, analysis, and productivity. Access powerful AI tools for business and personal use.">
-    <meta name="twitter:image" content="https://quantumtaskai.com/img/og-image.png">
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    /* ── Utilities ───────────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 
-    <!-- Font Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+    .section-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--indigo); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-label::before {
+      content: ''; width: 20px; height: 2px;
+      background: var(--indigo); border-radius: 2px;
+    }
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    .section-title {
+      font-size: clamp(30px, 3.6vw, 46px);
+      font-weight: 800; line-height: 1.12;
+      color: var(--navy); letter-spacing: -0.025em;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--gray500);
+      max-width: 540px; line-height: 1.75; margin-top: 12px;
+    }
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css">
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: inherit; font-size: 15px; font-weight: 700;
+      padding: 13px 26px; border-radius: 10px; cursor: pointer;
+      border: none; transition: all .2s; white-space: nowrap;
+      position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0); transition: background .2s;
+    }
+    .btn:hover::after { background: rgba(255,255,255,0.08); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
 
-    <!-- Icon Size Adjustments -->
-    <style>
-        .service-icon i, .choice-icon i { font-size: 2.5rem; }
-        .client-icon i { font-size: 2rem; }
-        .achievement-icon i { font-size: 1.75rem; }
-        .contact-icon i { font-size: 1.25rem; }
-        .trust-badge i { font-size: 1rem; }
-        .section-badge i { font-size: 1.1rem; }
-        .decorative-corner i { font-size: 2.5rem; }
-        .main-visual-icon i { font-size: 4rem; }
-        .floating-element i { font-size: 2rem; }
-        .company-badge i { font-size: 1rem; margin-right: 0.5rem; }
-        .footer-contact i { font-size: 0.9rem; margin-right: 0.35rem; }
-        .founder-avatar i { font-size: 2.5rem; }
-    </style>
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange), #ef4444);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(249,115,22,0.4);
+    }
+    .btn-primary:hover { box-shadow: 0 8px 30px rgba(249,115,22,0.55); }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.14); }
+
+    .btn-white {
+      background: var(--white); color: var(--navy);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+    .btn-white:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.18); }
+
+    /* ════════════════════════════════════════════ HERO */
+    .hero {
+      background: var(--navy);
+      position: relative; overflow: hidden;
+      padding: 100px 0 88px;
+    }
+
+    /* Animated gradient orbs */
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 65%);
+      top: -200px; left: -150px;
+      animation: orbFloat1 12s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(168,85,247,0.2) 0%, transparent 65%);
+      bottom: -150px; right: 10%;
+      animation: orbFloat2 15s ease-in-out infinite;
+    }
+    .hero-orb-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 65%);
+      top: 30%; right: 5%;
+      animation: orbFloat1 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes orbFloat1 {
+      0%,100% { transform: translate(0,0); }
+      50% { transform: translate(30px, -40px); }
+    }
+    @keyframes orbFloat2 {
+      0%,100% { transform: translate(0,0); }
+      50% { transform: translate(-25px, 30px); }
+    }
+
+    /* Grid overlay */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+
+    /* Announcement pill */
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 999px; padding: 6px 16px 6px 8px;
+      margin-bottom: 28px;
+    }
+    .hero-pill-badge {
+      background: var(--indigo); color: var(--white);
+      font-size: 10px; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 999px;
+    }
+    .hero-pill-text {
+      font-size: 13px; font-weight: 500; color: var(--indigo2);
+    }
+
+    .hero-h1 {
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 900; line-height: 1.06;
+      letter-spacing: -0.035em;
+      color: var(--white);
+      margin-bottom: 22px;
+    }
+
+    .hero-h1 .grad {
+      background: linear-gradient(135deg, #818cf8 0%, #c084fc 40%, #fb923c 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 17px; color: rgba(255,255,255,0.6);
+      line-height: 1.75; max-width: 460px; margin-bottom: 36px;
+    }
+
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+
+    /* Scrolling trust ticker */
+    .hero-trust {
+      display: flex; align-items: center; gap: 12px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-trust-label {
+      font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    .hero-trust-items {
+      display: flex; gap: 24px; flex-wrap: wrap;
+    }
+    .hero-trust-item {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.5);
+    }
+    .hero-trust-item .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+    }
+
+    /* ─── Mockup ─── */
+    .hero-visual { position: relative; z-index: 2; }
+
+    .mockup-wrap {
+      position: relative;
+      filter: drop-shadow(0 40px 80px rgba(0,0,0,0.5));
+    }
+
+    .mockup {
+      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 0;
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+    }
+
+    /* Window chrome */
+    .mockup-chrome {
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .chrome-dots { display: flex; gap: 6px; }
+    .chrome-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .chrome-dot:nth-child(1) { background: #ef4444; }
+    .chrome-dot:nth-child(2) { background: #f59e0b; }
+    .chrome-dot:nth-child(3) { background: #22c55e; }
+    .chrome-url {
+      flex: 1; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px; padding: 5px 12px;
+      font-size: 12px; color: rgba(255,255,255,0.3);
+      font-family: 'SF Mono', monospace;
+    }
+
+    /* Mockup body */
+    .mockup-body { padding: 24px; }
+
+    .audit-site-label {
+      font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase; letter-spacing: .1em;
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .audit-site-label::after {
+      content: 'LIVE'; font-size: 9px; font-weight: 800;
+      background: rgba(34,197,94,0.2); color: #22c55e;
+      border: 1px solid rgba(34,197,94,0.3);
+      padding: 2px 6px; border-radius: 4px;
+    }
+
+    .score-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .score-row:last-of-type { border-bottom: none; }
+
+    .score-left {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: rgba(255,255,255,0.65);
+    }
+    .score-ico {
+      width: 28px; height: 28px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+    }
+
+    .score-right {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .score-bar {
+      width: 88px; height: 5px;
+      background: rgba(255,255,255,0.08); border-radius: 999px;
+      overflow: hidden;
+    }
+    .score-fill {
+      height: 100%; border-radius: 999px;
+      animation: fillBar 1.5s ease forwards;
+    }
+    @keyframes fillBar { from { width: 0; } }
+
+    .score-val {
+      font-size: 13px; font-weight: 800;
+      color: var(--white); width: 32px; text-align: right;
+    }
+
+    .mockup-insight {
+      margin-top: 20px;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 10px; padding: 14px 16px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .insight-text {
+      font-size: 13px; font-weight: 600; color: var(--indigo2);
+    }
+    .insight-action {
+      font-size: 11px; font-weight: 800;
+      background: var(--indigo); color: var(--white);
+      padding: 5px 12px; border-radius: 6px;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+
+    /* Floating badges */
+    .float-badge {
+      position: absolute;
+      background: var(--white); border-radius: 12px;
+      padding: 10px 16px; box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 700; color: var(--navy);
+      z-index: 3; white-space: nowrap;
+    }
+    .float-badge .fb-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+    .float-badge-left {
+      left: -44px; bottom: 100px;
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+    .float-badge-right {
+      right: -28px; top: 80px;
+      animation: floatBadge 4s ease-in-out infinite .8s;
+    }
+    @keyframes floatBadge {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* ════════════════════════════════ MARQUEE STRIP */
+    .marquee-strip {
+      background: var(--navy2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 14px 0; overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; gap: 0;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 0 36px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      border-right: 1px solid rgba(255,255,255,0.08);
+      white-space: nowrap;
+    }
+    .marquee-item span { color: var(--indigo2); font-size: 15px; }
+
+    /* ════════════════════════════════ PROOF NUMBERS */
+    .proof {
+      background: var(--white);
+      padding: 72px 0;
+      border-bottom: 1px solid var(--gray100);
+    }
+
+    .proof-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 0;
+    }
+
+    .proof-item {
+      text-align: center; padding: 0 24px;
+      border-right: 1px solid var(--gray100);
+      position: relative;
+    }
+    .proof-item:last-child { border-right: none; }
+
+    .proof-num {
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 900; letter-spacing: -0.04em;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--indigo) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .proof-label {
+      font-size: 14px; font-weight: 600; color: var(--gray500);
+    }
+    .proof-sub {
+      font-size: 12px; color: var(--gray400); margin-top: 4px;
+    }
+
+    /* ════════════════════════════════ SERVICES */
+    .services {
+      background: var(--gray50); padding: 100px 0;
+    }
+
+    .services-header {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: end; margin-bottom: 56px; gap: 32px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .svc-card {
+      background: var(--white);
+      border: 1px solid var(--gray200);
+      border-radius: 16px; padding: 30px;
+      transition: all .25s;
+      position: relative; overflow: hidden;
+    }
+    .svc-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 0;
+      background: linear-gradient(135deg, var(--indigo), var(--violet));
+      transition: height .25s; opacity: 0.06;
+    }
+    .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px); border-color: transparent; }
+    .svc-card:hover::before { height: 100%; }
+
+    /* Featured card */
+    .svc-card.featured {
+      background: linear-gradient(135deg, var(--navy), #1a1040);
+      border-color: rgba(99,102,241,0.3);
+      color: var(--white);
+    }
+    .svc-card.featured::before { background: linear-gradient(135deg, var(--indigo), var(--violet)); opacity: 0.1; }
+    .svc-card.featured:hover { box-shadow: 0 20px 60px rgba(99,102,241,0.3); }
+
+    .svc-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 18px;
+    }
+
+    .svc-title {
+      font-size: 17px; font-weight: 700;
+      color: var(--navy); margin-bottom: 10px;
+    }
+    .svc-card.featured .svc-title { color: var(--white); }
+
+    .svc-text {
+      font-size: 14px; color: var(--gray500); line-height: 1.7;
+    }
+    .svc-card.featured .svc-text { color: rgba(255,255,255,0.6); }
+
+    .svc-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; color: var(--indigo);
+      margin-top: 18px; transition: gap .15s;
+    }
+    .svc-card.featured .svc-link { color: var(--indigo2); }
+    .svc-link:hover { gap: 10px; }
+
+    .svc-badge {
+      position: absolute; top: 18px; right: 18px;
+      font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .06em;
+      background: rgba(249,115,22,0.15); color: var(--orange);
+      border: 1px solid rgba(249,115,22,0.3);
+      padding: 3px 8px; border-radius: 6px;
+    }
+
+    /* ════════════════════════════════ DIFFERENTIATORS */
+    .why {
+      background: var(--white); padding: 100px 0;
+    }
+
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 56px; align-items: center; margin-top: 60px;
+    }
+
+    .why-list { display: flex; flex-direction: column; gap: 28px; }
+
+    .why-item {
+      display: flex; gap: 20px; align-items: flex-start;
+    }
+
+    .why-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0; margin-top: 2px;
+    }
+
+    .why-item-title {
+      font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px;
+    }
+    .why-item-text { font-size: 14px; color: var(--gray500); line-height: 1.7; }
+
+    .why-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a0a2e 100%);
+      border-radius: 24px; padding: 40px;
+      position: relative; overflow: hidden;
+    }
+    .why-visual::before {
+      content: ''; position: absolute;
+      top: -60px; right: -60px;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(99,102,241,0.25), transparent 65%);
+    }
+
+    .why-stat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      position: relative; z-index: 1;
+    }
+
+    .why-stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 20px;
+    }
+    .why-stat-num {
+      font-size: 32px; font-weight: 900; letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--white), var(--indigo2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1; margin-bottom: 6px;
+    }
+    .why-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; }
+
+    .why-visual-badge {
+      margin-top: 20px; position: relative; z-index: 1;
+      background: rgba(249,115,22,0.12);
+      border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 10px; padding: 14px 16px;
+      font-size: 14px; font-weight: 600; color: var(--orange2);
+      line-height: 1.5;
+    }
+
+    /* ════════════════════════════════ TESTIMONIAL */
+    .testimonials { background: var(--gray50); padding: 100px 0; }
+
+    .testimonials-header { text-align: center; margin-bottom: 56px; }
+    .testimonials-header .section-sub { margin: 12px auto 0; }
+
+    .t-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+    }
+
+    .t-card {
+      background: var(--white);
+      border: 1px solid var(--gray200);
+      border-radius: 16px; padding: 30px;
+      position: relative;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .t-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+    .t-quote {
+      font-size: 36px; line-height: 1;
+      color: var(--indigo); margin-bottom: 16px; font-family: Georgia, serif;
+    }
+
+    .t-text {
+      font-size: 15px; color: var(--gray700); line-height: 1.75;
+      margin-bottom: 24px; font-style: italic;
+    }
+
+    .t-author { display: flex; align-items: center; gap: 12px; }
+    .t-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800; color: var(--white);
+    }
+    .t-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+    .t-role { font-size: 12px; color: var(--gray400); margin-top: 2px; }
+
+    .t-stars {
+      position: absolute; top: 24px; right: 24px;
+      font-size: 13px; letter-spacing: 1px; color: #f59e0b;
+    }
+
+    /* ════════════════════════════════ CTA BANNER */
+    .cta-banner {
+      background: var(--navy); padding: 100px 0;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(99,102,241,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 50%, rgba(249,115,22,0.15) 0%, transparent 60%);
+    }
+    .cta-inner {
+      position: relative; z-index: 1; text-align: center;
+    }
+    .cta-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 999px; padding: 6px 16px; margin-bottom: 24px;
+      font-size: 13px; font-weight: 600; color: #4ade80;
+    }
+    .cta-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    .cta-title {
+      font-size: clamp(30px, 4.5vw, 56px);
+      font-weight: 900; color: var(--white);
+      letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.1;
+    }
+    .cta-title .grad {
+      background: linear-gradient(135deg, var(--indigo2), var(--orange2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cta-sub {
+      font-size: 17px; color: rgba(255,255,255,0.55);
+      max-width: 500px; margin: 0 auto 36px; line-height: 1.7;
+    }
+    .cta-buttons {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    }
+    .cta-note {
+      margin-top: 20px;
+      font-size: 13px; color: rgba(255,255,255,0.3);
+    }
+
+    /* ════════════════════════════════ CONTACT */
+    .contact { padding: 100px 0; background: var(--white); }
+
+    .contact-header { text-align: center; margin-bottom: 60px; }
+    .contact-header .section-sub { margin: 12px auto 0; }
+
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 56px; align-items: start;
+    }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--gray200);
+      border-radius: 20px; padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-title { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 28px; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-label {
+      display: block; font-size: 13px; font-weight: 700;
+      color: var(--navy2); margin-bottom: 6px; letter-spacing: .01em;
+    }
+    .form-input, .form-textarea {
+      width: 100%; font-family: inherit; font-size: 15px;
+      color: var(--text); background: var(--gray50);
+      border: 1.5px solid var(--gray200);
+      border-radius: 10px; padding: 12px 14px;
+      transition: border-color .15s, box-shadow .15s; outline: none;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--indigo);
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+    }
+    .form-textarea { resize: vertical; min-height: 110px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .form-submit {
+      width: 100%; font-family: inherit; font-size: 15px; font-weight: 700;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--orange), #ef4444);
+      border: none; border-radius: 10px; padding: 14px;
+      cursor: pointer; transition: all .2s;
+      box-shadow: 0 4px 20px rgba(249,115,22,0.35);
+      margin-top: 4px;
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.45); }
+
+    .contact-aside { padding-top: 8px; }
+    .contact-aside-title { font-size: 24px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .contact-aside-sub { font-size: 15px; color: var(--gray500); margin-bottom: 36px; line-height: 1.6; }
+
+    .c-item { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
+    .c-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--gray50); border: 1px solid var(--gray200);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .c-item h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .c-item p, .c-item a { font-size: 15px; color: var(--gray500); line-height: 1.6; }
+    .c-item a:hover { color: var(--indigo); }
+
+    .c-promise {
+      margin-top: 36px; padding: 24px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(168,85,247,0.06) 100%);
+      border: 1px solid rgba(99,102,241,0.15);
+      border-radius: 16px;
+    }
+    .c-promise-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .c-promise-text { font-size: 14px; color: var(--gray500); line-height: 1.65; }
+
+    /* ════════════════════════════════ FOOTER */
+    .footer { background: var(--navy); padding: 72px 0 32px; }
+
+    .footer-main {
+      display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 56px;
+    }
+
+    .footer-logo-img {
+      height: 40px; width: auto; margin-bottom: 18px;
+      filter: brightness(0) invert(1); opacity: 0.8;
+    }
+
+    .footer-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 24px; }
+
+    .footer-contact-link {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(255,255,255,0.4);
+      margin-bottom: 8px; transition: color .15s;
+    }
+    .footer-contact-link:hover { color: var(--white); }
+
+    .footer-col-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--white); margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-link { font-size: 14px; color: rgba(255,255,255,0.45); transition: color .15s; }
+    .footer-link:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 13px; color: rgba(255,255,255,0.3);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+
+    /* ════════════════════════════════ RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 56px; }
+      .hero-visual { display: none; }
+      .proof-grid { grid-template-columns: repeat(2,1fr); }
+      .proof-item:nth-child(2) { border-right: none; }
+      .proof-item:nth-child(3) { border-top: 1px solid var(--gray100); }
+      .proof-item:nth-child(4) { border-top: 1px solid var(--gray100); border-right: none; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .t-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 72px 0 64px; }
+      .hero-h1 { font-size: 38px; }
+      .services-header { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .float-badge { display: none; }
+      .hero-trust-items { gap: 14px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Shared header — update nav links at /header.js -->
-    <script src="/header.js"></script>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-container">
-                <!-- Trust Badge -->
-                <div class="trust-badge">
-                    <i class="fas fa-star"></i>
-                    <span>Trusted by Industry Leaders</span>
-                </div>
+  <script src="/header.js"></script>
 
-                <h1 class="hero-title">
-                    <span class="hero-title-gradient">
-                        AI & Cybersecurity
-                    </span>
-                    <br />
-                    <span class="hero-title-normal">
-                        Solutions
-                    </span>
-                </h1>
+  <main>
 
-                <p class="hero-description">
-                    Secure your digital future with state-of-the-art AI solutions and expert cybersecurity strategies tailored for your business needs.
-                </p>
+    <!-- ══════════════════════════════════════════ HERO -->
+    <section class="hero">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
 
-                <!-- CTA Buttons -->
-                <div class="hero-buttons">
-                    <a href="https://app.quantumtaskai.com/register" class="btn-primary">
-                        Get Protected Now
-                    </a>
-                    <a href="https://app.quantumtaskai.com" class="btn-secondary">
-                        Explore AI Hub
-                    </a>
-                </div>
+      <div class="container">
+        <div class="hero-inner">
 
-                <!-- Trust Indicators -->
-                <div class="trust-indicators">
-                    <div class="trust-card">
-                        <div class="trust-number">
-                            35+
-                        </div>
-                        <div class="trust-text">
-                            Years Experience
-                        </div>
-                    </div>
-                    <div class="trust-card">
-                        <div class="trust-number">
-                            24/7
-                        </div>
-                        <div class="trust-text">
-                            Rapid Response
-                        </div>
-                    </div>
-                    <div class="trust-card">
-                        <div class="trust-number">
-                            100%
-                        </div>
-                        <div class="trust-text">
-                            Secure Solutions
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Company Profile Section -->
-        <section id="about" class="company-profile">
-            <div class="company-container">
-                <!-- Section Header -->
-                <div class="section-header">
-                    <div class="section-badge">
-                        <i class="fas fa-building"></i>
-                        <span class="section-badge-text">About Quantum Tasks AI</span>
-                    </div>
-                    <h2 class="section-title">
-                        Your Trusted Digital Guardian
-                    </h2>
-                    <p class="section-subtitle">
-                        Pioneering the future of Automation & Cybersecurity with AI-powered solutions
-                    </p>
-                </div>
-
-                <div class="company-grid">
-                    <!-- Content Side -->
-                    <div>
-                        <div class="company-content-card">
-                            <!-- Decorative corner -->
-                            <div class="decorative-corner">
-                                <i class="fas fa-shield-halved"></i>
-                            </div>
-
-                            <h3 class="company-content-title">
-                                Defending Digital Frontiers
-                            </h3>
-
-                            <p class="company-content-text">
-                                At Quantum Tasks AI, we provide <strong>state-of-the-art AI & Cybersecurity solutions</strong> tailored to safeguard your business. From advanced AI Agents to robust defense strategies, we empower you to navigate the digital world with confidence.
-                            </p>
-
-                            <!-- Enhanced badges -->
-                            <div class="company-badges">
-                                <div class="company-badge company-badge-primary">
-                                    <i class="fas fa-calendar-check"></i>
-                                    35+ Years Experience
-                                </div>
-                                <div class="company-badge company-badge-purple">
-                                    <i class="fas fa-trophy"></i>
-                                    Top Certifications
-                                </div>
-                            </div>
-
-                            <div class="company-badge company-badge-orange">
-                                <i class="fas fa-award"></i>
-                                Lean Six Sigma Black Belt
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Visual Side -->
-                    <div class="company-visual">
-                        <!-- Main visual container -->
-                        <div class="main-visual">
-                            <!-- Main icon -->
-                            <div class="main-visual-icon">
-                                <i class="fas fa-shield-halved"></i>
-                            </div>
-                        </div>
-
-                        <!-- Floating elements around the main visual -->
-                        <div class="floating-element floating-element-1">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div class="floating-element floating-element-2">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom achievement strip -->
-                <div class="achievement-strip">
-                    <div class="achievement-item">
-                        <div class="achievement-icon"><i class="fas fa-bullseye"></i></div>
-                        <div class="achievement-title">Mission Critical</div>
-                        <div class="achievement-text">Zero Compromise</div>
-                    </div>
-                    <div class="achievement-item">
-                        <div class="achievement-icon"><i class="fas fa-bolt"></i></div>
-                        <div class="achievement-title">Rapid Response</div>
-                        <div class="achievement-text">24/7 Protection</div>
-                    </div>
-                    <div class="achievement-item">
-                        <div class="achievement-icon"><i class="fas fa-flask"></i></div>
-                        <div class="achievement-title">Innovation</div>
-                        <div class="achievement-text">Cutting Edge Tech</div>
-                    </div>
-                    <div class="achievement-item">
-                        <div class="achievement-icon"><i class="fas fa-handshake"></i></div>
-                        <div class="achievement-title">Trusted Partner</div>
-                        <div class="achievement-text">Industry Leaders</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="services">
-            <div class="services-container">
-                <h2 class="services-title">
-                    Our Services
-                </h2>
-                <p class="services-subtitle">
-                    Tailored strategies for your business
-                </p>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
-                        <h3 class="service-title">Cybersecurity Consultation</h3>
-                        <p class="service-description">
-                            Tailored strategies, advanced threat detection, and comprehensive security frameworks to protect your digital assets and business operations.
-                        </p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-robot"></i></div>
-                        <h3 class="service-title">AI Based Automation</h3>
-                        <p class="service-description">
-                            Empower your Business with AI. Strategic AI adoption, machine learning solutions, and intelligent automation to transform your processes.
-                        </p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-bolt"></i></div>
-                        <h3 class="service-title">Rapid Response Solutions</h3>
-                        <p class="service-description">
-                            Rapid response to minimize damage. Emergency incident response and real-time threat mitigation to protect your business.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Clients Section -->
-        <section class="clients">
-            <div class="clients-container">
-                <h2 class="clients-title">
-                    Our Clients
-                </h2>
-                <div class="clients-grid">
-                    <div class="client-card">
-                        <div class="client-icon"><i class="fas fa-industry"></i></div>
-                        <h3 class="client-name">MTSV Foods Industries Pvt Ltd</h3>
-                        <p class="client-industry">Food & Beverage Industry</p>
-                    </div>
-                    <div class="client-card">
-                        <div class="client-icon"><i class="fas fa-gears"></i></div>
-                        <h3 class="client-name">Apple Tree Industries</h3>
-                        <p class="client-industry">Manufacturing & Processing</p>
-                    </div>
-                    <div class="client-card">
-                        <div class="client-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h3 class="client-name">TechStart Solutions</h3>
-                        <p class="client-industry">Technology Consulting</p>
-                    </div>
-                    <div class="client-card">
-                        <div class="client-icon"><i class="fas fa-truck-fast"></i></div>
-                        <h3 class="client-name">Global Logistics Corp</h3>
-                        <p class="client-industry">Supply Chain Management</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Founder Section -->
-        <section class="founder">
-            <div class="founder-container">
-                <h2 class="founder-title">
-                    Our Founders
-                </h2>
-
-                <!-- J P Goenka -->
-                <div class="founder-grid">
-                    <div class="founder-card-container">
-                        <div class="founder-card">
-                            <div class="founder-avatar">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <h3 class="founder-name">J P Goenka</h3>
-                            <p class="founder-role">
-                                Founder & Business Development Leader
-                            </p>
-                            <div class="founder-badges">
-                                <div class="founder-badge">
-                                    International Trading Expert
-                                </div>
-                                <div class="founder-badge">
-                                    Dubai Business Leader
-                                </div>
-                                <div class="founder-badge">
-                                    Global Perspective
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="founder-content">
-                        <p class="founder-text">
-J P Goenka
-
-With over 45 years of entrepreneurial and leadership experience, J P Goenka has built a distinguished career across a diverse range of industries, including food processing, printed circuit boards, plastics manufacturing, beans splitting units, and international trade (import & export).
-
-                     </p>
-                        <p class="founder-text">
-                         Mr. Goenka brings deep global business insight, supported by an extensive international network and a strong understanding of various markets, products, and cultural dynamics. Recognizing the transformative impact of emerging technologies, he co-founded Quantum Task AI LLC FZ in partnership with Mr. Abhay Chauhan, focusing on advancing solutions in Artificial Intelligence and Cybersecurity—two key pillars shaping the future of global business.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Abhay Pal Chauhan -->
-                <div class="founder-grid" style="margin-top: 3rem;">
-                    <div class="founder-card-container">
-                        <div class="founder-card">
-                            <div class="founder-avatar">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <h3 class="founder-name">Abhay Pal Chauhan</h3>
-                            <p class="founder-role">
-                                Founder & Principal Consultant
-                            </p>
-                            <div class="founder-badges">
-                                <div class="founder-badge">
-                                    35+ Years Experience
-                                </div>
-                                <div class="founder-badge">
-                                    Cybersecurity Expert
-                                </div>
-                                <div class="founder-badge">
-                                    Six Sigma Black Belt
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="founder-content">
-                        <p class="founder-text">
-                            Our Founder leverages over <strong>35 years of expertise</strong> in cybersecurity and process automation and optimization, backed by top certifications in Cybersecurity and <strong>Black Belt in Lean Six Sigma</strong>.
-                        </p>
-                        <p class="founder-text">
-                            His unique blend of technical knowledge and operational excellence ensures <strong>tailored, secure, and efficient solutions</strong> for our clients, driving business resilience and maximizing value in every engagement.
-                        </p>
-                        <div class="founder-quote">
-                            <p class="founder-quote-text">
-                                "Delivering top-tier solutions that combine cutting-edge technology with proven operational methodologies to secure and optimize your business operations."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="contact-container">
-                <h2 class="contact-title">
-                    Get In Touch
-                </h2>
-                <div class="contact-grid">
-                    <!-- Contact Form -->
-                    <form class="contact-form" method="post" action="#" id="contactForm">
-                        <h3 class="form-title">Send us a Message</h3>
-
-                        <!-- Form Messages -->
-                        <div id="form-messages" class="form-messages" style="display: none;"></div>
-
-                        <div class="form-group">
-                            <label for="name" class="form-label">Full Name *</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                class="form-input"
-                                maxlength="100"
-                                pattern="[a-zA-Z\s\-\.']+"
-                                title="Please enter a valid name using only letters, spaces, hyphens, dots, and apostrophes"
-                            />
-                            <div class="field-error" id="name-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address *</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                class="form-input"
-                                maxlength="254"
-                            />
-                            <div class="field-error" id="email-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="company" class="form-label">Company</label>
-                            <input
-                                type="text"
-                                id="company"
-                                name="company"
-                                class="form-input"
-                                maxlength="100"
-                            />
-                            <div class="field-error" id="company-error"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message *</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                required
-                                class="form-textarea"
-                                maxlength="1000"
-                                minlength="10"
-                                placeholder="Please describe your inquiry (minimum 10 characters)..."
-                            ></textarea>
-                            <div class="char-counter">
-                                <span id="message-count">0</span>/1000 characters
-                            </div>
-                            <div class="field-error" id="message-error"></div>
-                        </div>
-                        <button type="submit" class="form-submit" id="submitBtn">
-                            <span class="btn-text">Send Message</span>
-                            <span class="btn-loading" style="display: none;">
-                                <span class="spinner"></span> Sending...
-                            </span>
-                        </button>
-                    </form>
-
-                    <!-- Contact Information -->
-                    <div class="contact-info">
-                        <h3 class="contact-info-title">Contact Information</h3>
-
-                        <!-- Mailing Address -->
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-location-dot"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Mailing Address</h4>
-                                <p>
-                                    Meydan Grandstand, 6th floor<br />
-                                    Meydan Road, Nad Al Sheba<br />
-                                    Dubai, U.A.E.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Email Address -->
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Email Address</h4>
-                                <p>
-                                    <a href="mailto:abhay@quantumtaskai.com" class="contact-email">
-                                        abhay@quantumtaskai.com
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Commitment Statement -->
-                        <div class="commitment-statement">
-                            <p class="commitment-text">
-                                We are committed to deliver top-tier AI & Cybersecurity solutions for businesses of all sizes.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <!-- Main Footer Content -->
-            <div class="footer-main">
-                <!-- Company Info -->
-                <div class="footer-company">
-                    <div class="footer-logo">
-                        <img src="img/logo.png" alt="Quantum Tasks AI" class="footer-logo-img">
-                    </div>
-                    <p class="footer-description">
-                        Leading cybersecurity consultancy providing comprehensive security solutions and AI-powered automation.
-                    </p>
-
-                    <div class="footer-contact">
-                        <a href="mailto:abhay@quantumtaskai.com" class="footer-contact-item">
-                            <i class="fas fa-envelope"></i> abhay@quantumtaskai.com
-                        </a>
-                        <span class="footer-contact-item">
-                            <i class="fas fa-location-dot"></i> Dubai, UAE
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Navigation Sections -->
-                <div class="footer-nav">
-                    <!-- Services -->
-                    <div class="footer-nav-section">
-                        <h4 class="footer-nav-title">Services</h4>
-                        <div class="footer-nav-links">
-                            <a href="#services" class="footer-nav-link">Cybersecurity Consulting</a>
-                            <a href="#services" class="footer-nav-link">AI Automation</a>
-                            <a href="digital-branding.html" class="footer-nav-link">Digital Branding</a>
-                            <a href="#services" class="footer-nav-link">Rapid Response</a>
-                        </div>
-                    </div>
-
-                    <!-- Company -->
-                    <div class="footer-nav-section">
-                        <h4 class="footer-nav-title">Company</h4>
-                        <div class="footer-nav-links">
-                            <a href="#about" class="footer-nav-link">About Us</a>
-                            <a href="#founder" class="footer-nav-link">Leadership</a>
-                            <a href="#contact" class="footer-nav-link">Contact Us</a>
-                            <a href="https://app.quantumtaskai.com" class="footer-nav-link">AI Marketplace</a>
-                        </div>
-                    </div>
-                </div>
+          <!-- Copy side -->
+          <div>
+            <div class="hero-pill">
+              <span class="hero-pill-badge">New</span>
+              <span class="hero-pill-text">AI Site Auditor is live — free for a limited time</span>
             </div>
 
-            <!-- Bottom Section -->
-            <div class="footer-bottom">
-                <p class="footer-copyright">
-                    © 2025 Quantum Tasks AI. All rights reserved.
-                </p>
-                <div class="footer-legal">
-                    <a href="#privacy" class="footer-legal-link">Privacy Policy</a>
-                    <a href="#terms" class="footer-legal-link">Terms of Service</a>
-                    <a href="#security" class="footer-legal-link">Security</a>
-                </div>
+            <h1 class="hero-h1">
+              Stop Running Your<br>
+              Business on<br>
+              <span class="grad">Guesswork.</span>
+            </h1>
+
+            <p class="hero-sub">
+              AI-powered automation, cybersecurity, and digital growth — all in one place. We do the complex work so your business can move faster, safer, and smarter.
+            </p>
+
+            <div class="hero-ctas">
+              <a href="https://audit.quantumtaskai.com" class="btn btn-primary">
+                Get a Free AI Audit →
+              </a>
+              <a href="https://form.jotform.com/252121444918050" target="_blank" class="btn btn-ghost">
+                Talk to an Expert
+              </a>
             </div>
+
+            <div class="hero-trust">
+              <span class="hero-trust-label">Trusted by</span>
+              <div class="hero-trust-items">
+                <span class="hero-trust-item"><span class="dot"></span> Food &amp; Beverage</span>
+                <span class="hero-trust-item"><span class="dot"></span> Manufacturing</span>
+                <span class="hero-trust-item"><span class="dot"></span> Technology</span>
+                <span class="hero-trust-item"><span class="dot"></span> Logistics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual side -->
+          <div class="hero-visual">
+            <div class="mockup-wrap">
+
+              <div class="float-badge float-badge-left">
+                <div class="fb-icon" style="background:rgba(34,197,94,0.15);color:#22c55e;">✓</div>
+                Audit complete
+              </div>
+              <div class="float-badge float-badge-right">
+                <div class="fb-icon" style="background:rgba(99,102,241,0.15);color:#818cf8;">✦</div>
+                AI-powered
+              </div>
+
+              <div class="mockup">
+                <div class="mockup-chrome">
+                  <div class="chrome-dots">
+                    <div class="chrome-dot"></div>
+                    <div class="chrome-dot"></div>
+                    <div class="chrome-dot"></div>
+                  </div>
+                  <div class="chrome-url">audit.quantumtaskai.com</div>
+                </div>
+
+                <div class="mockup-body">
+                  <div class="audit-site-label">GEO &amp; AI Visibility Report</div>
+
+                  <div class="score-row">
+                    <div class="score-left">
+                      <div class="score-ico" style="background:rgba(99,102,241,0.15);color:#818cf8;">✦</div>
+                      AI Visibility Score
+                    </div>
+                    <div class="score-right">
+                      <div class="score-bar"><div class="score-fill" style="width:87%;background:linear-gradient(90deg,#6366f1,#818cf8);"></div></div>
+                      <div class="score-val">87</div>
+                    </div>
+                  </div>
+
+                  <div class="score-row">
+                    <div class="score-left">
+                      <div class="score-ico" style="background:rgba(249,115,22,0.15);color:#fb923c;">◎</div>
+                      SEO Score
+                    </div>
+                    <div class="score-right">
+                      <div class="score-bar"><div class="score-fill" style="width:92%;background:linear-gradient(90deg,#f97316,#fb923c);"></div></div>
+                      <div class="score-val">92</div>
+                    </div>
+                  </div>
+
+                  <div class="score-row">
+                    <div class="score-left">
+                      <div class="score-ico" style="background:rgba(168,85,247,0.15);color:#c084fc;">⚡</div>
+                      Performance
+                    </div>
+                    <div class="score-right">
+                      <div class="score-bar"><div class="score-fill" style="width:78%;background:linear-gradient(90deg,#a855f7,#c084fc);"></div></div>
+                      <div class="score-val">78</div>
+                    </div>
+                  </div>
+
+                  <div class="score-row">
+                    <div class="score-left">
+                      <div class="score-ico" style="background:rgba(6,182,212,0.15);color:#22d3ee;">◈</div>
+                      Schema &amp; GEO
+                    </div>
+                    <div class="score-right">
+                      <div class="score-bar"><div class="score-fill" style="width:95%;background:linear-gradient(90deg,#06b6d4,#67e8f9);"></div></div>
+                      <div class="score-val">95</div>
+                    </div>
+                  </div>
+
+                  <div class="mockup-insight">
+                    <div class="insight-text">3 quick fixes → +12 visibility points</div>
+                    <div class="insight-action">Fix Now</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
+    <!-- ══════════════════════════════════════ MARQUEE -->
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <!-- Duplicated for seamless loop -->
+        <span class="marquee-item"><span>🛡</span> Cybersecurity Consulting</span>
+        <span class="marquee-item"><span>⚡</span> AI Automation</span>
+        <span class="marquee-item"><span>🔍</span> AI Site Auditor</span>
+        <span class="marquee-item"><span>✦</span> Digital Branding</span>
+        <span class="marquee-item"><span>📊</span> SOSTAC+RACE Framework</span>
+        <span class="marquee-item"><span>🤖</span> AI Content Generation</span>
+        <span class="marquee-item"><span>🏆</span> Six Sigma Methodology</span>
+        <span class="marquee-item"><span>🌐</span> Based in Dubai, UAE</span>
+        <span class="marquee-item"><span>🛡</span> Cybersecurity Consulting</span>
+        <span class="marquee-item"><span>⚡</span> AI Automation</span>
+        <span class="marquee-item"><span>🔍</span> AI Site Auditor</span>
+        <span class="marquee-item"><span>✦</span> Digital Branding</span>
+        <span class="marquee-item"><span>📊</span> SOSTAC+RACE Framework</span>
+        <span class="marquee-item"><span>🤖</span> AI Content Generation</span>
+        <span class="marquee-item"><span>🏆</span> Six Sigma Methodology</span>
+        <span class="marquee-item"><span>🌐</span> Based in Dubai, UAE</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ PROOF -->
+    <section class="proof">
+      <div class="container">
+        <div class="proof-grid">
+          <div class="proof-item">
+            <div class="proof-num">35+</div>
+            <div class="proof-label">Years Combined Expertise</div>
+            <div class="proof-sub">Cybersecurity &amp; Process Automation</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num">250%</div>
+            <div class="proof-label">Average ROI Increase</div>
+            <div class="proof-sub">Across digital branding clients</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num">3×</div>
+            <div class="proof-label">Faster Content Output</div>
+            <div class="proof-sub">With AI automation pipelines</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num">24/7</div>
+            <div class="proof-label">Monitoring &amp; Response</div>
+            <div class="proof-sub">Security &amp; automation coverage</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ SERVICES -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="services-header">
+          <div>
+            <p class="section-label">What We Do</p>
+            <h2 class="section-title">Every AI tool your<br>business needs to win</h2>
+          </div>
+          <a href="https://form.jotform.com/252121444918050" target="_blank" class="btn btn-primary" style="align-self:center;">
+            Get Started →
+          </a>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="svc-card featured">
+            <div class="svc-badge">Free</div>
+            <div class="svc-icon" style="background:rgba(99,102,241,0.2);color:#818cf8;">🔍</div>
+            <div class="svc-title">AI Site Auditor</div>
+            <div class="svc-text">See exactly how ChatGPT, Perplexity, and Google AI see your site. GEO + SEO audit with actionable fixes — in minutes, not weeks.</div>
+            <a href="https://audit.quantumtaskai.com" class="svc-link">Run a free audit →</a>
+          </div>
+
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(249,115,22,0.1);color:#f97316;">🛡</div>
+            <div class="svc-title">Cybersecurity Consulting</div>
+            <div class="svc-text">Threat detection, security frameworks, and incident response backed by 35+ years of hands-on expertise and Six Sigma methodology.</div>
+            <a href="https://form.jotform.com/252121444918050" target="_blank" class="svc-link">Get a security review →</a>
+          </div>
+
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(34,197,94,0.1);color:#16a34a;">⚡</div>
+            <div class="svc-title">AI Automation</div>
+            <div class="svc-text">Eliminate repetitive work with intelligent workflows, machine learning integrations, and automated pipelines that scale with your team.</div>
+            <a href="https://form.jotform.com/252121444918050" target="_blank" class="svc-link">Automate your workflow →</a>
+          </div>
+
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(168,85,247,0.1);color:#a855f7;">✦</div>
+            <div class="svc-title">AI Digital Branding</div>
+            <div class="svc-text">Build a brand that stands out. Strategy + content + identity using the proven SOSTAC+RACE framework — powered by AI for 3× faster execution.</div>
+            <a href="digital-branding.html" class="svc-link">Explore branding →</a>
+          </div>
+
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(239,68,68,0.1);color:#ef4444;">⚠</div>
+            <div class="svc-title">Rapid Response</div>
+            <div class="svc-text">When a security incident hits, every minute costs money. Our response team activates immediately to contain threats and restore operations.</div>
+            <a href="https://form.jotform.com/252121444918050" target="_blank" class="svc-link">Get emergency support →</a>
+          </div>
+
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(6,182,212,0.1);color:#0891b2;">✍</div>
+            <div class="svc-title">AI Content &amp; Blog</div>
+            <div class="svc-text">Automated content pipelines that research, write, and publish SEO-optimized articles — keeping your blog alive without lifting a finger.</div>
+            <a href="https://blog.quantumtaskai.com/" class="svc-link">Read our blog →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ WHY QUANTUM TASKS AI -->
+    <section id="about" class="why">
+      <div class="container">
+        <p class="section-label">Why Choose Us</p>
+        <h2 class="section-title">Not a software vendor.<br>A strategic AI partner.</h2>
+
+        <div class="why-grid">
+
+          <div class="why-list">
+            <div class="why-item">
+              <div class="why-icon" style="background:rgba(99,102,241,0.1);color:var(--indigo);">🎯</div>
+              <div>
+                <div class="why-item-title">35+ Years Operational Depth</div>
+                <div class="why-item-text">Our founders bring decades of real-world experience in cybersecurity, process automation, and international business — not just theory.</div>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon" style="background:rgba(249,115,22,0.1);color:var(--orange);">🏆</div>
+              <div>
+                <div class="why-item-title">Six Sigma Black Belt Rigor</div>
+                <div class="why-item-text">Every engagement is built on proven operational methodology. Zero-waste processes, measurable outcomes, and continuous improvement built in.</div>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon" style="background:rgba(34,197,94,0.1);color:#16a34a;">🌍</div>
+              <div>
+                <div class="why-item-title">Global Perspective, Local Focus</div>
+                <div class="why-item-text">Based in Dubai with international reach — we understand the unique challenges of businesses operating across the UAE and beyond.</div>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon" style="background:rgba(168,85,247,0.1);color:var(--violet);">⚡</div>
+              <div>
+                <div class="why-item-title">Results in Days, Not Months</div>
+                <div class="why-item-text">AI tools that deploy fast. Strategy that shows measurable results within the first 30 days — or we don't stop until they do.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-visual">
+            <div class="why-stat-grid">
+              <div class="why-stat-card">
+                <div class="why-stat-num">45+</div>
+                <div class="why-stat-label">Years combined business leadership</div>
+              </div>
+              <div class="why-stat-card">
+                <div class="why-stat-num">250%</div>
+                <div class="why-stat-label">Avg. ROI increase for branding clients</div>
+              </div>
+              <div class="why-stat-card">
+                <div class="why-stat-num">3×</div>
+                <div class="why-stat-label">Faster content output with AI pipelines</div>
+              </div>
+              <div class="why-stat-card">
+                <div class="why-stat-num">100%</div>
+                <div class="why-stat-label">AI-powered delivery model</div>
+              </div>
+            </div>
+            <div class="why-visual-badge">
+              ✦ &nbsp;"The only consultancy in the region combining deep cybersecurity expertise with full-stack AI implementation."
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ TESTIMONIALS -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="testimonials-header">
+          <p class="section-label" style="justify-content:center;">Client Results</p>
+          <h2 class="section-title">Businesses that made the switch</h2>
+          <p class="section-sub">Real outcomes from real engagements — no fluff.</p>
+        </div>
+
+        <div class="t-grid">
+
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-quote">"</div>
+            <p class="t-text">Quantum Tasks AI overhauled our entire security posture in under three weeks. The combination of technical depth and structured Six Sigma methodology meant nothing was left to chance.</p>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#6366f1,#a855f7);">M</div>
+              <div>
+                <div class="t-name">Management Team</div>
+                <div class="t-role">MTSV Foods Industries Pvt Ltd</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-quote">"</div>
+            <p class="t-text">The AI branding strategy delivered exactly what they promised — our content output tripled and our digital presence went from invisible to ranking on the first page within 60 days.</p>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#f97316,#ef4444);">A</div>
+              <div>
+                <div class="t-name">Operations Director</div>
+                <div class="t-role">Apple Tree Industries</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-quote">"</div>
+            <p class="t-text">Running the free AI audit was an eye-opener. We had no idea how poorly our site was performing for AI-powered search. The fixes took a day and the results were immediate.</p>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#06b6d4,#6366f1);">T</div>
+              <div>
+                <div class="t-name">Founder</div>
+                <div class="t-role">TechStart Solutions</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ CTA BANNER -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-pill">
+            <span class="cta-pill-dot"></span>
+            Free — no credit card required
+          </div>
+          <h2 class="cta-title">Your competitors are<br>already using AI.<br><span class="grad">Don't get left behind.</span></h2>
+          <p class="cta-sub">Start with a free audit of your site — see exactly where you stand in under 5 minutes.</p>
+          <div class="cta-buttons">
+            <a href="https://audit.quantumtaskai.com" class="btn btn-primary">
+              Run My Free Audit →
+            </a>
+            <a href="https://form.jotform.com/252121444918050" target="_blank" class="btn btn-ghost">
+              Book a Consultation
+            </a>
+          </div>
+          <p class="cta-note">Or email us directly at <a href="mailto:abhay@quantumtaskai.com" style="color:rgba(255,255,255,0.5);text-decoration:underline;">abhay@quantumtaskai.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ CONTACT -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-header">
+          <p class="section-label" style="justify-content:center;">Get In Touch</p>
+          <h2 class="section-title">Let's talk about your business</h2>
+          <p class="section-sub">Security concern, automation project, or branding strategy — we respond within 24 hours.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="form-card">
+            <div class="form-title">Send us a message</div>
+            <form id="contactForm" method="post" action="#">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Full Name *</label>
+                  <input class="form-input" type="text" name="name" required maxlength="100" placeholder="Your name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email *</label>
+                  <input class="form-input" type="email" name="email" required maxlength="254" placeholder="you@company.com" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Company</label>
+                <input class="form-input" type="text" name="company" maxlength="100" placeholder="Your company name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">What can we help with? *</label>
+                <textarea class="form-input form-textarea" name="message" required minlength="10" maxlength="1000" placeholder="Tell us about your security needs, automation goals, or branding project…"></textarea>
+              </div>
+              <button type="submit" class="form-submit">Send Message →</button>
+            </form>
+          </div>
+
+          <div class="contact-aside">
+            <div class="contact-aside-title">We're based in Dubai.</div>
+            <div class="contact-aside-sub">Serving businesses across the UAE, GCC, and globally. Response within 24 hours, guaranteed.</div>
+
+            <div class="c-item">
+              <div class="c-icon">📍</div>
+              <div>
+                <h4>Office</h4>
+                <p>Meydan Grandstand, 6th floor<br>Meydan Road, Nad Al Sheba<br>Dubai, U.A.E.</p>
+              </div>
+            </div>
+
+            <div class="c-item">
+              <div class="c-icon">✉</div>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:abhay@quantumtaskai.com">abhay@quantumtaskai.com</a>
+              </div>
+            </div>
+
+            <div class="c-promise">
+              <div class="c-promise-title">Our commitment to you</div>
+              <div class="c-promise-text">Every engagement starts with understanding your specific challenge. No generic solutions, no unnecessary upselling — just the right AI strategy for your business.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════ FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div>
+          <img src="img/logo.png" alt="Quantum Tasks AI" class="footer-logo-img" />
+          <p class="footer-desc">AI-powered automation, cybersecurity, and digital growth — built for businesses ready to move faster and compete smarter.</p>
+          <a href="mailto:abhay@quantumtaskai.com" class="footer-contact-link">✉ &nbsp;abhay@quantumtaskai.com</a>
+          <span class="footer-contact-link">📍 &nbsp;Dubai, UAE</span>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="https://audit.quantumtaskai.com" class="footer-link">AI Site Auditor</a>
+            <a href="#services" class="footer-link">Cybersecurity</a>
+            <a href="#services" class="footer-link">AI Automation</a>
+            <a href="digital-branding.html" class="footer-link">Digital Branding</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="#about" class="footer-link">About Us</a>
+            <a href="https://blog.quantumtaskai.com/" class="footer-link">Blog</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Free Tools</div>
+          <div class="footer-links">
+            <a href="https://audit.quantumtaskai.com" class="footer-link">Free Site Audit</a>
+            <a href="digital-branding.html" class="footer-link">Branding Framework</a>
+            <a href="https://blog.quantumtaskai.com/" class="footer-link">AI Insights</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Quantum Task AI LLC FZ · Dubai, UAE</span>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      btn.textContent = 'Message sent ✓';
+      btn.style.background = '#16a34a';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+        btn.disabled = false;
+        this.reset();
+      }, 4000);
+    });
+
+    // Scroll-triggered fade-in for sections
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.style.opacity = '1';
+          el.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.svc-card, .t-card, .why-item, .proof-item, .founder-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
+  </script>
+
 </body>
 </html>

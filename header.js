@@ -70,19 +70,44 @@
     }
 
     .sh-nav a:hover {
-      color: #3b82f6;
-      background: rgba(59,130,246,0.05);
+      color: #6366f1;
+      background: rgba(99,102,241,0.06);
     }
 
     .sh-nav a.sh-active {
-      color: #1d4ed8;
-      background: rgba(59,130,246,0.08);
+      color: #4f46e5;
+      background: rgba(99,102,241,0.08);
       font-weight: 600;
     }
 
     .sh-nav a:focus-visible {
-      outline: 2px solid #3b82f6;
+      outline: 2px solid #6366f1;
       outline-offset: 2px;
+    }
+
+    /* ── CTA Button ── */
+    .sh-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(135deg, #f97316, #ef4444);
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      margin-left: 8px;
+      transition: opacity .15s, transform .15s, box-shadow .15s;
+      box-shadow: 0 2px 10px rgba(249,115,22,0.35);
+    }
+
+    .sh-cta:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(249,115,22,0.45);
     }
 
     /* ── Hamburger ── */
@@ -99,11 +124,12 @@
       transition: background .15s;
     }
 
-    .sh-burger:hover { background: rgba(59,130,246,0.05); }
+    .sh-burger:hover { background: rgba(99,102,241,0.06); }
 
     /* ── Mobile menu ── */
     @media (max-width: 768px) {
       .sh-burger { display: flex; }
+      .sh-cta { display: none; }
 
       .sh-inner { position: relative; }
 
@@ -171,6 +197,7 @@
         '<nav aria-label="Main navigation">' +
           '<ul class="sh-nav" id="sh-nav">' + buildNavItems() + '</ul>' +
         '</nav>' +
+        '<a href="https://audit.quantumtaskai.com" class="sh-cta">Free Audit →</a>' +
         '<button class="sh-burger" id="sh-burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sh-nav">' +
           '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">' +
             '<path d="M3 5h16M3 11h16M3 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +

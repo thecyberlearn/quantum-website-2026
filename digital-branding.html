@@ -1,477 +1,1125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Digital Branding Services - Quantum Tasks AI</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="AI-powered digital branding services with intelligent marketing strategies, automation, and data-driven insights for unprecedented brand growth.">
-    <meta name="keywords" content="AI digital branding, marketing automation, brand intelligence, digital marketing, AI marketing">
-    <meta name="author" content="Quantum Tasks AI">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Quantum Tasks AI">
-    <meta property="og:title" content="AI Digital Branding Services - Quantum Tasks AI">
-    <meta property="og:description" content="AI-powered digital branding services with intelligent marketing strategies and automation for unprecedented brand growth.">
-    <meta property="og:url" content="https://quantumtaskai.com/digital-branding.html">
-    <meta property="og:image" content="https://quantumtaskai.com/img/og-image.png">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@quantumtaskai">
-    <meta name="twitter:title" content="AI Digital Branding Services - Quantum Tasks AI">
-    <meta name="twitter:description" content="AI-powered digital branding services with intelligent marketing strategies and automation.">
-    <meta name="twitter:image" content="https://quantumtaskai.com/img/og-image.png">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    
-    <!-- Font Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Digital Branding — Quantum Tasks AI</title>
+  <meta name="description" content="AI-powered digital branding with the SOSTAC+RACE framework. 250% average ROI increase. Strategy, automation and brand growth for modern businesses in Dubai." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Quantum Tasks AI" />
+  <meta property="og:title" content="AI Digital Branding — Quantum Tasks AI" />
+  <meta property="og:description" content="AI-powered digital branding with the SOSTAC+RACE framework. 250% average ROI increase." />
+  <meta property="og:url" content="https://quantumtaskai.com/digital-branding.html" />
+  <meta property="og:image" content="https://quantumtaskai.com/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Digital Branding — Quantum Tasks AI" />
+  <meta name="twitter:image" content="https://quantumtaskai.com/img/og-image.png" />
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+  <style>
+    /* ── Reset & Tokens (identical to index-v2) ──────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css">
+    :root {
+      --navy:   #0a0f1e;
+      --navy2:  #111827;
+      --navy3:  #1e293b;
+      --indigo: #6366f1;
+      --indigo2:#818cf8;
+      --violet: #a855f7;
+      --orange: #f97316;
+      --orange2:#fb923c;
+      --cyan:   #06b6d4;
+      --green:  #22c55e;
+      --white:  #ffffff;
+      --gray50: #f8fafc;
+      --gray100:#f1f5f9;
+      --gray200:#e2e8f0;
+      --gray400:#94a3b8;
+      --gray500:#64748b;
+      --gray700:#334155;
+      --text:   #0f172a;
+      --r: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.14);
+    }
 
-    <!-- Icon Size Adjustments -->
-    <style>
-        .service-icon i { font-size: 2.5rem; }
-        .choice-icon i { font-size: 2.5rem; }
-        .contact-icon i { font-size: 1.25rem; }
-        .trust-badge i { font-size: 1rem; }
-        .section-badge i { font-size: 1.1rem; }
-        .race-phase i { font-size: 2rem; }
-        .cta-feature i { font-size: 1rem; margin-right: 0.5rem; color: var(--primary); }
-        .cta-btn i { font-size: 1rem; margin-right: 0.5rem; }
-        .footer-contact i { font-size: 0.9rem; margin-right: 0.35rem; }
-    </style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text); background: var(--white);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Utilities ──────────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    .section-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--indigo); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-label::before {
+      content: ''; width: 20px; height: 2px;
+      background: var(--indigo); border-radius: 2px;
+    }
+    .section-label.center { justify-content: center; }
+    .section-label.center::before { display: none; }
+
+    .section-title {
+      font-size: clamp(30px, 3.6vw, 46px);
+      font-weight: 800; line-height: 1.12;
+      color: var(--navy); letter-spacing: -.025em;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--gray500);
+      max-width: 560px; line-height: 1.75; margin-top: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: inherit; font-size: 15px; font-weight: 700;
+      padding: 13px 26px; border-radius: 10px; cursor: pointer;
+      border: none; transition: all .2s; white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange), #ef4444);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(249,115,22,0.4);
+    }
+    .btn-primary:hover { box-shadow: 0 8px 30px rgba(249,115,22,0.55); }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.08); color: var(--white);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.14); }
+
+    .btn-outline {
+      background: transparent; color: var(--indigo);
+      border: 2px solid var(--indigo);
+    }
+    .btn-outline:hover { background: var(--indigo); color: var(--white); }
+
+    /* ════════════════════════════════════════ HERO */
+    .hero {
+      background: var(--navy);
+      position: relative; overflow: hidden;
+      padding: 96px 0 80px;
+    }
+
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 650px; height: 650px;
+      background: radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 65%);
+      top: -180px; left: -100px;
+      animation: orb1 14s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 65%);
+      bottom: -120px; right: 5%;
+      animation: orb2 16s ease-in-out infinite;
+    }
+    .hero-orb-3 {
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 65%);
+      top: 40%; right: 15%;
+      animation: orb1 11s ease-in-out infinite reverse;
+    }
+    @keyframes orb1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(28px,-38px)} }
+    @keyframes orb2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-22px,28px)} }
+
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 60px 60px; pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+
+    /* ── Brand Mockup ── */
+    .hero-visual { position: relative; }
+
+    .brand-card {
+      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; overflow: hidden;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+    }
+
+    .brand-chrome {
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .b-dots { display: flex; gap: 6px; }
+    .b-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .b-dot:nth-child(1){background:#ef4444;}
+    .b-dot:nth-child(2){background:#f59e0b;}
+    .b-dot:nth-child(3){background:#22c55e;}
+    .b-url {
+      flex: 1; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px; padding: 5px 12px;
+      font-size: 12px; color: rgba(255,255,255,0.3);
+      font-family: monospace;
+    }
+
+    .brand-body { padding: 24px; }
+
+    .brand-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.3);
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .brand-label::after {
+      content: 'LIVE'; font-size: 9px; font-weight: 800;
+      background: rgba(168,85,247,0.2); color: #d8b4fe;
+      border: 1px solid rgba(168,85,247,0.3);
+      padding: 2px 6px; border-radius: 4px;
+    }
+
+    /* Channel rows */
+    .channel-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .channel-row:last-of-type { border-bottom: none; }
+
+    .ch-left { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,.6); }
+    .ch-ico {
+      width: 28px; height: 28px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center; font-size: 13px;
+    }
+
+    .ch-right { display: flex; align-items: center; gap: 10px; }
+    .ch-bar { width: 80px; height: 5px; background: rgba(255,255,255,.08); border-radius: 999px; overflow: hidden; }
+    .ch-fill { height: 100%; border-radius: 999px; animation: fillBar 1.5s ease forwards; }
+    @keyframes fillBar { from{width:0} }
+    .ch-val { font-size: 13px; font-weight: 800; color: var(--white); width: 36px; text-align: right; }
+
+    /* Mini stat row */
+    .brand-stats-row {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 10px; margin-top: 18px;
+    }
+    .brand-mini-stat {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 10px; padding: 12px;
+      text-align: center;
+    }
+    .brand-mini-num {
+      font-size: 18px; font-weight: 900; color: var(--white);
+      letter-spacing: -.03em; line-height: 1; margin-bottom: 4px;
+    }
+    .brand-mini-label { font-size: 11px; color: rgba(255,255,255,.4); font-weight: 500; }
+
+    /* Floating badge */
+    .hero-float-badge {
+      position: absolute;
+      background: var(--white); border-radius: 12px;
+      padding: 10px 16px; box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 700; color: var(--navy);
+      white-space: nowrap; z-index: 3;
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+    .hero-float-badge .fb-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
+    }
+    .float-tl { top: -16px; left: -32px; animation-delay: 0s; }
+    .float-br { bottom: 20px; right: -24px; animation-delay: .9s; }
+    @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+    }
+
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(168,85,247,0.12);
+      border: 1px solid rgba(168,85,247,0.3);
+      border-radius: 999px; padding: 6px 16px 6px 8px;
+      margin-bottom: 28px;
+    }
+    .hero-pill-badge {
+      background: var(--violet); color: var(--white);
+      font-size: 10px; font-weight: 800;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 999px;
+    }
+    .hero-pill-text { font-size: 13px; font-weight: 500; color: #d8b4fe; }
+
+    .hero-h1 {
+      font-size: clamp(40px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.07;
+      letter-spacing: -.035em; color: var(--white);
+      margin-bottom: 22px;
+    }
+    .hero-h1 .grad {
+      background: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #fb923c 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 18px; color: rgba(255,255,255,.6);
+      line-height: 1.75; max-width: 580px; margin-bottom: 36px;
+    }
+
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
+
+    .hero-stats {
+      display: flex; gap: 40px; flex-wrap: wrap;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .hero-stat-num {
+      font-size: 30px; font-weight: 900;
+      letter-spacing: -.03em; color: var(--white); line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label { font-size: 13px; color: rgba(255,255,255,.45); font-weight: 500; }
+
+    /* ════════════════════════════════ MARQUEE */
+    .marquee-strip {
+      background: var(--navy2);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 13px 0; overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .marquee-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 0 36px; font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,.4);
+      border-right: 1px solid rgba(255,255,255,.08);
+      white-space: nowrap;
+    }
+    .marquee-item span { color: #d8b4fe; font-size: 15px; }
+
+    /* ════════════════════════════════ PROOF */
+    .proof { background: var(--white); padding: 72px 0; border-bottom: 1px solid var(--gray100); }
+    .proof-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+    .proof-item {
+      text-align: center; padding: 0 24px;
+      border-right: 1px solid var(--gray100);
+    }
+    .proof-item:last-child { border-right: none; }
+    .proof-num {
+      font-size: clamp(36px,4vw,52px); font-weight: 900;
+      letter-spacing: -.04em; line-height: 1; margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--navy), var(--violet));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .proof-label { font-size: 14px; font-weight: 600; color: var(--gray500); }
+    .proof-sub { font-size: 12px; color: var(--gray400); margin-top: 4px; }
+
+    /* ════════════════════════════════ WHY */
+    .why { background: var(--gray50); padding: 100px 0; }
+    .why-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .why-header .section-sub { margin: 12px auto 0; }
+
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+    .why-card {
+      background: var(--white); border: 1px solid var(--gray200);
+      border-radius: 16px; padding: 32px;
+      transition: box-shadow .2s, transform .2s;
+      position: relative; overflow: hidden;
+    }
+    .why-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      opacity: 0; transition: opacity .2s;
+    }
+    .why-card:nth-child(1)::after { background: linear-gradient(90deg,var(--indigo),var(--violet)); }
+    .why-card:nth-child(2)::after { background: linear-gradient(90deg,var(--violet),var(--orange)); }
+    .why-card:nth-child(3)::after { background: linear-gradient(90deg,var(--orange),var(--cyan)); }
+    .why-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+    .why-card:hover::after { opacity: 1; }
+
+    .why-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 20px;
+    }
+    .why-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .why-text { font-size: 14px; color: var(--gray500); line-height: 1.7; }
+
+    /* ════════════════════════════════ PROCESS */
+    .process { background: var(--white); padding: 100px 0; }
+    .process-header { text-align: center; max-width: 680px; margin: 0 auto 64px; }
+    .process-header .section-sub { margin: 12px auto 0; }
+
+    /* SOSTAC label row */
+    .sostac-labels {
+      display: grid; grid-template-columns: repeat(6,1fr);
+      gap: 12px; margin-bottom: 16px;
+    }
+    .sostac-label {
+      text-align: center; font-size: 11px; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--indigo2); padding: 6px 0;
+    }
+
+    .process-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+
+    .process-card {
+      background: var(--gray50); border: 1px solid var(--gray200);
+      border-radius: 16px; padding: 28px;
+      transition: box-shadow .2s, transform .2s;
+      position: relative;
+    }
+    .process-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+    .process-num {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--indigo), var(--violet));
+      color: var(--white); font-size: 15px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .process-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .process-text { font-size: 14px; color: var(--gray500); line-height: 1.65; }
+
+    /* RACE section */
+    .race { background: var(--navy); padding: 80px 0; }
+
+    .race-header { text-align: center; margin-bottom: 52px; }
+    .race-header .section-label { color: #d8b4fe; justify-content: center; }
+    .race-header .section-label::before { display: none; }
+    .race-title { font-size: clamp(26px,3vw,38px); font-weight: 800; color: var(--white); letter-spacing: -.025em; margin-bottom: 10px; }
+    .race-sub { font-size: 16px; color: rgba(255,255,255,.5); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+    .race-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+
+    .race-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px; padding: 28px;
+      transition: background .2s, border-color .2s;
+      position: relative; overflow: hidden;
+    }
+    .race-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+    }
+    .race-card:nth-child(1)::before { background: linear-gradient(90deg,var(--indigo),var(--violet)); }
+    .race-card:nth-child(2)::before { background: linear-gradient(90deg,var(--violet),var(--orange)); }
+    .race-card:nth-child(3)::before { background: linear-gradient(90deg,var(--orange),#f59e0b); }
+    .race-card:nth-child(4)::before { background: linear-gradient(90deg,var(--cyan),var(--green)); }
+    .race-card:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); }
+
+    .race-letter {
+      font-size: 40px; font-weight: 900; letter-spacing: -.04em;
+      background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(255,255,255,.3));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1; margin-bottom: 4px;
+    }
+    .race-word { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.4); margin-bottom: 16px; }
+    .race-focus { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .race-actions { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.65; }
+
+    /* ════════════════════════════════ SERVICES */
+    .services { background: var(--gray50); padding: 100px 0; }
+    .services-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .services-header .section-sub { margin: 12px auto 0; }
+
+    .svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+
+    .svc-card {
+      background: var(--white); border: 1px solid var(--gray200);
+      border-radius: 16px; padding: 30px;
+      transition: all .25s; position: relative; overflow: hidden;
+    }
+    .svc-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 0;
+      background: linear-gradient(135deg, var(--violet), var(--indigo));
+      transition: height .25s; opacity: .06;
+    }
+    .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); border-color: transparent; }
+    .svc-card:hover::before { height: 100%; }
+
+    .svc-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 18px;
+    }
+    .svc-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .svc-text { font-size: 14px; color: var(--gray500); line-height: 1.7; }
+
+    /* ════════════════════════════════ CTA BANNER */
+    .cta-banner {
+      background: var(--navy); padding: 100px 0;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 50%, rgba(168,85,247,.22) 0%, transparent 58%),
+        radial-gradient(ellipse at 75% 50%, rgba(249,115,22,.15) 0%, transparent 58%);
+    }
+    .cta-inner { position: relative; z-index: 1; }
+
+    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+    .cta-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(168,85,247,.12); border: 1px solid rgba(168,85,247,.25);
+      border-radius: 999px; padding: 6px 14px; margin-bottom: 20px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: #d8b4fe;
+    }
+    .cta-title {
+      font-size: clamp(28px,3.6vw,44px); font-weight: 900;
+      color: var(--white); letter-spacing: -.025em;
+      line-height: 1.12; margin-bottom: 16px;
+    }
+    .cta-title .grad {
+      background: linear-gradient(135deg, #c084fc, #818cf8, var(--orange2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cta-desc { font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.7; margin-bottom: 32px; }
+
+    .cta-checks { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .cta-check {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 15px; color: rgba(255,255,255,.7);
+    }
+    .cta-check-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(34,197,94,.2); color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; flex-shrink: 0;
+    }
+
+    .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Right side info card */
+    .cta-info-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px; padding: 36px;
+    }
+    .cta-info-title { font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 24px; }
+
+    .cta-contact-item {
+      display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;
+    }
+    .cta-contact-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .cta-contact-item h4 { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.5); margin-bottom: 4px; }
+    .cta-contact-item p, .cta-contact-item a {
+      font-size: 15px; color: var(--white); font-weight: 500;
+    }
+    .cta-contact-item a:hover { color: var(--indigo2); }
+
+    .cta-promise {
+      margin-top: 24px; padding: 18px 20px;
+      background: rgba(168,85,247,.1); border: 1px solid rgba(168,85,247,.2);
+      border-radius: 12px;
+      font-size: 14px; color: #d8b4fe; line-height: 1.65;
+    }
+
+    /* ════════════════════════════════ FOOTER */
+    .footer { background: var(--navy); padding: 72px 0 32px; }
+    .footer-main {
+      display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 56px;
+    }
+    .footer-logo-img {
+      height: 40px; width: auto; margin-bottom: 18px;
+      filter: brightness(0) invert(1); opacity: .8;
+    }
+    .footer-desc { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.7; margin-bottom: 24px; }
+    .footer-contact-link {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: rgba(255,255,255,.4);
+      margin-bottom: 8px; transition: color .15s;
+    }
+    .footer-contact-link:hover { color: var(--white); }
+    .footer-col-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--white); margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-link { font-size: 14px; color: rgba(255,255,255,.45); transition: color .15s; }
+    .footer-link:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 28px; border-top: 1px solid rgba(255,255,255,.08);
+      font-size: 13px; color: rgba(255,255,255,.3);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+
+    /* ════════════════════════════════ RESPONSIVE */
+    @media (max-width: 1024px) {
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .race-grid { grid-template-columns: 1fr 1fr; }
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .cta-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .proof-grid { grid-template-columns: repeat(2,1fr); }
+      .proof-item:nth-child(2) { border-right: none; }
+      .proof-item:nth-child(3) { border-top: 1px solid var(--gray100); }
+      .proof-item:nth-child(4) { border-top: 1px solid var(--gray100); border-right: none; }
+    }
+    @media (max-width: 768px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .race-grid { grid-template-columns: 1fr 1fr; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .hero-stats { gap: 24px; }
+    }
+    @media (max-width: 480px) {
+      .race-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Shared header -->
-    <script src="/header.js"></script>
-    
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="digital-branding-hero" class="digital-branding-hero">
-            <div class="hero-container">
-                <!-- Trust Badge -->
-                <div class="trust-badge">
-                    <i class="fas fa-star"></i>
-                    <span>Trusted Digital Brand Partner</span>
-                </div>
 
-                <h1 class="hero-title">
-                    <span class="hero-title-gradient">
-                        AI-Powered Digital Branding
-                    </span>
-                    <br />
-                    <span class="hero-title-normal">
-                        Intelligence
-                    </span>
-                </h1>
+  <script src="/header.js"></script>
 
-                <p class="hero-description">
-                    Elevate Your Brand with Intelligent Digital Strategies. Combine proven marketing expertise with AI automation to accelerate growth, optimize performance, and deliver measurable results that matter.
-                </p>
+  <main>
 
-                <!-- CTA Buttons -->
-                <div class="hero-buttons">
-                    <a href="https://form.jotform.com/252121444918050" target="_blank" class="btn-primary">
-                        Get Started
-                    </a>
-                    <a href="#our-process" class="btn-secondary">
-                        Learn More
-                    </a>
-                </div>
+    <!-- ═══════════════════════════════════════════ HERO -->
+    <section class="hero">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
 
-                <!-- Trust Indicators -->
-                <div class="trust-indicators">
-                    <div class="trust-card">
-                        <div class="trust-number">
-                            250%
-                        </div>
-                        <div class="trust-text">
-                            Average ROI Increase
-                        </div>
-                    </div>
-                    <div class="trust-card">
-                        <div class="trust-number">
-                            3x
-                        </div>
-                        <div class="trust-text">
-                            Faster Content Creation
-                        </div>
-                    </div>
-                    <div class="trust-card">
-                        <div class="trust-number">
-                            24/7
-                        </div>
-                        <div class="trust-text">
-                            Performance Monitoring
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="hero-inner">
+
+          <!-- Left: copy -->
+          <div>
+          <div class="hero-pill">
+            <span class="hero-pill-badge">AI-Powered</span>
+            <span class="hero-pill-text">SOSTAC+RACE framework — proven, automated, measurable</span>
+          </div>
+
+          <h1 class="hero-h1">
+            Build a Brand That<br>
+            <span class="grad">AI Remembers.</span>
+          </h1>
+
+          <p class="hero-sub">
+            Combine 35+ years of marketing expertise with cutting-edge AI automation. Get a custom brand strategy, faster content, and measurable growth — delivered in 24 hours.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="https://form.jotform.com/252121444918050" target="_blank" class="btn btn-primary">
+              Get My Free Brand Assessment →
+            </a>
+            <a href="#process" class="btn btn-ghost">
+              See the Framework
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-num">250%</div>
+              <div class="hero-stat-label">Average ROI increase</div>
             </div>
-        </section>
-
-        <!-- Why Choose Us Section -->
-        <section id="why-choose-us" class="why-choose-us">
-            <div class="section-container">
-                <!-- Section Header -->
-                <div class="section-header">
-                    <div class="section-badge">
-                        <i class="fas fa-bullseye"></i>
-                        <span class="section-badge-text">Why Choose Us</span>
-                    </div>
-                    <h2 class="section-title">
-                        Intelligent Digital Excellence
-                    </h2>
-                    <p class="section-subtitle">
-                        Combine proven digital strategies with smart automation and data insights to accelerate your brand's growth and market impact
-                    </p>
-                </div>
-
-                <div class="why-choose-grid">
-                    <div class="choice-card">
-                        <div class="choice-icon"><i class="fas fa-robot"></i></div>
-                        <h3 class="choice-title">Data-Driven Brand Intelligence</h3>
-                        <p class="choice-description">
-                            Advanced analytics and automation for real-time audience insights, trend forecasting, and competitive intelligence. Our smart systems continuously optimize your strategy based on performance data.
-                        </p>
-                    </div>
-                    <div class="choice-card">
-                        <div class="choice-icon"><i class="fas fa-globe"></i></div>
-                        <h3 class="choice-title">Comprehensive Digital Automation</h3>
-                        <p class="choice-description">
-                            End-to-end digital presence management with smart automation, content optimization, intelligent scheduling, SEO enhancement, and reputation management for maximum efficiency and impact.
-                        </p>
-                    </div>
-                    <div class="choice-card">
-                        <div class="choice-icon"><i class="fas fa-bolt"></i></div>
-                        <h3 class="choice-title">Smart Personalization & Optimization</h3>
-                        <p class="choice-description">
-                            Intelligent systems that learn your brand identity, automatically adapt strategies for your market, and continuously optimize campaigns based on performance data and market insights.
-                        </p>
-                    </div>
-                </div>
+            <div>
+              <div class="hero-stat-num">3×</div>
+              <div class="hero-stat-label">Faster content creation</div>
             </div>
-        </section>
-
-        <!-- Our Process Section -->
-        <section id="our-process" class="our-process">
-            <div class="section-container">
-                <div class="section-header">
-                    <div class="section-badge">
-                        <i class="fas fa-clipboard-list"></i>
-                        <span class="section-badge-text">Our Process</span>
-                    </div>
-                    <h2 class="section-title">
-                        AI-Enhanced SOSTAC+RACE Framework
-                    </h2>
-                    <p class="section-subtitle">
-                        Our proven methodology supercharged with artificial intelligence, machine learning insights, and automated optimization at every stage
-                    </p>
-                </div>
-
-                <div class="process-grid">
-                    <div class="process-step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3 class="step-title">AI-Powered Situation Analysis</h3>
-                            <p class="step-description">
-                                Deploy machine learning algorithms to analyze your brand's digital DNA, competitive intelligence automation, and predictive market positioning with real-time data insights.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="process-step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3 class="step-title">AI-Optimized Objectives</h3>
-                            <p class="step-description">
-                                Generate data-driven SMART goals using predictive analytics, automated KPI tracking, and AI-powered performance forecasting with continuous goal optimization.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="process-step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Intelligent Strategy Design</h3>
-                            <p class="step-description">
-                                AI-driven customer journey mapping, automated audience segmentation, dynamic value proposition testing, and intelligent channel selection with performance optimization.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="process-step-card">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h3 class="step-title">AI-Automated Tactics (RACE Framework)</h3>
-                            <p class="step-description">
-                                Deploy intelligent automation for Reach (AI-powered visibility), Act (automated engagement), Convert (smart sales funnels), and Engage (AI-driven loyalty programs).
-                            </p>
-                        </div>
-                    </div>
-                    <div class="process-step-card">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Automated Action Execution</h3>
-                            <p class="step-description">
-                                AI-powered task automation, intelligent timeline management, and automated brand asset generation with smart content creation and deployment systems.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="process-step-card">
-                        <div class="step-number">6</div>
-                        <div class="step-content">
-                            <h3 class="step-title">Intelligent Control & Optimization</h3>
-                            <p class="step-description">
-                                Real-time AI monitoring, predictive KPI analysis, automated strategy refinement, and continuous machine learning optimization with performance forecasting.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RACE Framework Details -->
-                <div class="race-framework">
-                    <h3 class="race-title">RACE Framework Breakdown</h3>
-                    <div class="race-grid">
-                        <div class="race-card">
-                            <div class="race-phase">
-                                <i class="fas fa-bullhorn"></i>
-                                <h4>Reach</h4>
-                            </div>
-                            <div class="race-focus">AI-Powered Visibility</div>
-                            <div class="race-actions">Automated LLM optimization, AI-driven SEO, smart ad targeting, AI influencer matching, automated PR distribution</div>
-                        </div>
-                        <div class="race-card">
-                            <div class="race-phase">
-                                <i class="fas fa-comments"></i>
-                                <h4>Act</h4>
-                            </div>
-                            <div class="race-focus">Intelligent Engagement</div>
-                            <div class="race-actions">AI content generation, dynamic landing pages, chatbot interactions, automated social responses</div>
-                        </div>
-                        <div class="race-card">
-                            <div class="race-phase">
-                                <i class="fas fa-bullseye"></i>
-                                <h4>Convert</h4>
-                            </div>
-                            <div class="race-focus">Smart Conversions</div>
-                            <div class="race-actions">AI-optimized CTAs, predictive retargeting, automated lead scoring, intelligent funnel optimization</div>
-                        </div>
-                        <div class="race-card">
-                            <div class="race-phase">
-                                <i class="fas fa-heart"></i>
-                                <h4>Engage</h4>
-                            </div>
-                            <div class="race-focus">AI-Driven Loyalty</div>
-                            <div class="race-actions">Automated email personalization, AI community management, predictive advocacy, smart retention campaigns</div>
-                        </div>
-                    </div>
-                </div>
+            <div>
+              <div class="hero-stat-num">24/7</div>
+              <div class="hero-stat-label">Performance monitoring</div>
             </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="branding-services">
-            <div class="section-container">
-                <h2 class="services-title">
-                    AI-Powered Service Portfolio
-                </h2>
-                <p class="services-subtitle">
-                    Advanced artificial intelligence solutions that automate, optimize, and accelerate your digital brand transformation
-                </p>
-                <div class="branding-services-grid">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-palette"></i></div>
-                        <h3 class="service-title">Brand Discovery & Smart Identity Design</h3>
-                        <p class="service-description">
-                            Complete brand audit enhanced with AI insights, strategic identity creation, and adaptive design systems that evolve with market trends and audience data.
-                        </p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-mobile-screen"></i></div>
-                        <h3 class="service-title">Strategic Platform Management & Automation</h3>
-                        <p class="service-description">
-                            Smart platform selection and optimization, automated content distribution, intelligent scheduling, and performance optimization across social media, websites, and digital touchpoints.
-                        </p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
-                        <h3 class="service-title">Advanced Content & Marketing Automation</h3>
-                        <p class="service-description">
-                            AI-enhanced content creation, automated SEO optimization, intelligent ad targeting and social media management with real-time performance adjustments for maximum impact.
-                        </p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-                        <h3 class="service-title">Influencer Partnerships & Digital PR</h3>
-                        <p class="service-description">
-                            Strategic influencer discovery and matching, automated PR campaign management, smart media outreach, and comprehensive relationship management for maximum brand amplification.
-                        </p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-bullseye"></i></div>
-                        <h3 class="service-title">Brand Consistency & Messaging Systems</h3>
-                        <p class="service-description">
-                            Unified brand guidelines with automated enforcement, intelligent messaging frameworks, smart visual asset management, and consistent brand voice across all platforms.
-                        </p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3 class="service-title">Predictive AI Analytics & Automated Insights</h3>
-                        <p class="service-description">
-                            Real-time predictive analytics, automated performance optimization, AI-generated insights and recommendations, with intelligent forecasting and proactive strategy adjustments.
-                        </p>
-                    </div>
-                </div>
+            <div>
+              <div class="hero-stat-num">24h</div>
+              <div class="hero-stat-label">Strategy delivered</div>
             </div>
-        </section>
+          </div>
+          </div><!-- end left col -->
 
-        <!-- CTA Section -->
-        <section id="discovery-form" class="branding-cta">
-            <div class="cta-container">
-                <h2 class="cta-title">
-                    Accelerate Your Digital Brand Growth
-                </h2>
-                <div class="cta-grid">
-                    <!-- CTA Content -->
-                    <div class="cta-content">
-                        <h3 class="cta-content-title">Ready to transform your digital brand presence?</h3>
-                        <p class="cta-description">
-                            Complete our Digital Brand Strategy Assessment and receive a customized growth roadmap with smart automation recommendations within 24 hours.
-                        </p>
-                        
-                        <!-- Features List -->
-                        <div class="cta-features">
-                            <div class="cta-feature">
-                                <i class="fas fa-check"></i>
-                                <span>Free comprehensive brand analysis</span>
-                            </div>
-                            <div class="cta-feature">
-                                <i class="fas fa-check"></i>
-                                <span>Personalized growth automation roadmap</span>
-                            </div>
-                            <div class="cta-feature">
-                                <i class="fas fa-check"></i>
-                                <span>Custom strategy proposal in 24 hours</span>
-                            </div>
-                        </div>
+          <!-- Right: Brand Dashboard Mockup -->
+          <div class="hero-visual">
+            <div style="position:relative;">
 
-                        <!-- CTA Buttons -->
-                        <div class="cta-buttons">
-                            <a href="https://form.jotform.com/252121444918050" target="_blank" class="cta-btn secondary">
-                                <i class="fas fa-comments"></i> Contact Us Directly
-                            </a>
-                        </div>
-                    </div>
+              <div class="hero-float-badge float-tl">
+                <span class="fb-dot"></span> Brand score improved +34
+              </div>
+              <div class="hero-float-badge float-br">
+                ✦ 3× content output
+              </div>
 
-                    <!-- Contact Information -->
-                    <div class="cta-info">
-                        <h3 class="cta-info-title">Get in Touch</h3>
-                        
-                        <!-- Contact Item -->
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Email Address</h4>
-                                <p>
-                                    <a href="mailto:abhay@quantumtaskai.com" class="contact-email">
-                                        abhay@quantumtaskai.com
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Commitment Statement -->
-                        <div class="commitment-statement">
-                            <p class="commitment-text">
-                                Leading the AI Revolution in Digital Branding - Where Artificial Intelligence Meets Brand Excellence for Unprecedented Growth and Automation.
-                            </p>
-                        </div>
-                    </div>
+              <div class="brand-card">
+                <div class="brand-chrome">
+                  <div class="b-dots">
+                    <div class="b-dot"></div>
+                    <div class="b-dot"></div>
+                    <div class="b-dot"></div>
+                  </div>
+                  <div class="b-url">Brand Performance Dashboard</div>
                 </div>
+
+                <div class="brand-body">
+                  <div class="brand-label">Channel Visibility Score</div>
+
+                  <div class="channel-row">
+                    <div class="ch-left">
+                      <div class="ch-ico" style="background:rgba(99,102,241,.15);color:#818cf8;">✦</div>
+                      AI Search (GEO)
+                    </div>
+                    <div class="ch-right">
+                      <div class="ch-bar"><div class="ch-fill" style="width:91%;background:linear-gradient(90deg,#6366f1,#a855f7);"></div></div>
+                      <div class="ch-val">91</div>
+                    </div>
+                  </div>
+
+                  <div class="channel-row">
+                    <div class="ch-left">
+                      <div class="ch-ico" style="background:rgba(249,115,22,.15);color:#fb923c;">🔍</div>
+                      Organic SEO
+                    </div>
+                    <div class="ch-right">
+                      <div class="ch-bar"><div class="ch-fill" style="width:84%;background:linear-gradient(90deg,#f97316,#fb923c);"></div></div>
+                      <div class="ch-val">84</div>
+                    </div>
+                  </div>
+
+                  <div class="channel-row">
+                    <div class="ch-left">
+                      <div class="ch-ico" style="background:rgba(34,197,94,.15);color:#22c55e;">📱</div>
+                      Social Reach
+                    </div>
+                    <div class="ch-right">
+                      <div class="ch-bar"><div class="ch-fill" style="width:76%;background:linear-gradient(90deg,#22c55e,#67e8f9);"></div></div>
+                      <div class="ch-val">76</div>
+                    </div>
+                  </div>
+
+                  <div class="channel-row">
+                    <div class="ch-left">
+                      <div class="ch-ico" style="background:rgba(168,85,247,.15);color:#c084fc;">✉</div>
+                      Email Open Rate
+                    </div>
+                    <div class="ch-right">
+                      <div class="ch-bar"><div class="ch-fill" style="width:68%;background:linear-gradient(90deg,#a855f7,#c084fc);"></div></div>
+                      <div class="ch-val">68</div>
+                    </div>
+                  </div>
+
+                  <div class="brand-stats-row">
+                    <div class="brand-mini-stat">
+                      <div class="brand-mini-num" style="color:#22c55e;">+34%</div>
+                      <div class="brand-mini-label">Brand Score</div>
+                    </div>
+                    <div class="brand-mini-stat">
+                      <div class="brand-mini-num" style="color:#818cf8;">3.2×</div>
+                      <div class="brand-mini-label">Content Volume</div>
+                    </div>
+                    <div class="brand-mini-stat">
+                      <div class="brand-mini-num" style="color:#fb923c;">250%</div>
+                      <div class="brand-mini-label">ROI Growth</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
-        </section>
-    </main>
+          </div><!-- end right col -->
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <!-- Main Footer Content -->
-            <div class="footer-main">
-                <!-- Company Info -->
-                <div class="footer-company">
-                    <div class="footer-logo">
-                        <img src="img/logo.png" alt="Quantum Tasks AI" class="footer-logo-img">
-                    </div>
-                    <p class="footer-description">
-                        Leading cybersecurity consultancy providing comprehensive security solutions and AI-powered automation.
-                    </p>
-                    
-                    <div class="footer-contact">
-                        <a href="mailto:abhay@quantumtaskai.com" class="footer-contact-item">
-                            <i class="fas fa-envelope"></i> abhay@quantumtaskai.com
-                        </a>
-                        <span class="footer-contact-item">
-                            <i class="fas fa-location-dot"></i> Dubai, UAE
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Navigation Sections -->
-                <div class="footer-nav">
-                    <!-- Services -->
-                    <div class="footer-nav-section">
-                        <h4 class="footer-nav-title">Services</h4>
-                        <div class="footer-nav-links">
-                            <a href="index.html#services" class="footer-nav-link">Cybersecurity Consulting</a>
-                            <a href="index.html#services" class="footer-nav-link">AI Automation</a>
-                            <a href="digital-branding.html" class="footer-nav-link">Digital Branding</a>
-                            <a href="index.html#services" class="footer-nav-link">Rapid Response</a>
-                        </div>
-                    </div>
-
-                    <!-- Company -->
-                    <div class="footer-nav-section">
-                        <h4 class="footer-nav-title">Company</h4>
-                        <div class="footer-nav-links">
-                            <a href="index.html#about" class="footer-nav-link">About Us</a>
-                            <a href="index.html#founder" class="footer-nav-link">Leadership</a>
-                            <a href="index.html#contact" class="footer-nav-link">Contact Us</a>
-                            <a href="https://app.quantumtaskai.com" class="footer-nav-link">AI Marketplace</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom Section -->
-            <div class="footer-bottom">
-                <p class="footer-copyright">
-                    © 2025 Quantum Tasks AI. All rights reserved.
-                </p>
-                <div class="footer-legal">
-                    <a href="#privacy" class="footer-legal-link">Privacy Policy</a>
-                    <a href="#terms" class="footer-legal-link">Terms of Service</a>
-                    <a href="#security" class="footer-legal-link">Security</a>
-                </div>
-            </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
+    <!-- ═══════════════════════════════════════ MARQUEE -->
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span class="marquee-item"><span>✦</span> Brand Identity Design</span>
+        <span class="marquee-item"><span>📊</span> SOSTAC+RACE Framework</span>
+        <span class="marquee-item"><span>🤖</span> AI Content Generation</span>
+        <span class="marquee-item"><span>🎯</span> Predictive Analytics</span>
+        <span class="marquee-item"><span>📱</span> Platform Automation</span>
+        <span class="marquee-item"><span>📢</span> Influencer Partnerships</span>
+        <span class="marquee-item"><span>🔍</span> SEO & GEO Optimization</span>
+        <span class="marquee-item"><span>💡</span> Smart Personalization</span>
+        <span class="marquee-item"><span>✦</span> Brand Identity Design</span>
+        <span class="marquee-item"><span>📊</span> SOSTAC+RACE Framework</span>
+        <span class="marquee-item"><span>🤖</span> AI Content Generation</span>
+        <span class="marquee-item"><span>🎯</span> Predictive Analytics</span>
+        <span class="marquee-item"><span>📱</span> Platform Automation</span>
+        <span class="marquee-item"><span>📢</span> Influencer Partnerships</span>
+        <span class="marquee-item"><span>🔍</span> SEO & GEO Optimization</span>
+        <span class="marquee-item"><span>💡</span> Smart Personalization</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ PROOF -->
+    <section class="proof">
+      <div class="container">
+        <div class="proof-grid">
+          <div class="proof-item">
+            <div class="proof-num">250%</div>
+            <div class="proof-label">Average ROI Increase</div>
+            <div class="proof-sub">Measured across branding engagements</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num">3×</div>
+            <div class="proof-label">Faster Content Output</div>
+            <div class="proof-sub">With AI automation pipelines</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num">24h</div>
+            <div class="proof-label">Strategy Delivered</div>
+            <div class="proof-sub">Custom roadmap, guaranteed</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num">24/7</div>
+            <div class="proof-label">Performance Monitoring</div>
+            <div class="proof-sub">Real-time AI oversight</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ WHY -->
+    <section class="why">
+      <div class="container">
+        <div class="why-header">
+          <p class="section-label center">Why Choose Us</p>
+          <h2 class="section-title">Intelligence that actually moves the needle</h2>
+          <p class="section-sub">Not generic templates. A custom AI strategy built around your brand, your market, and your goals.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon" style="background:rgba(99,102,241,0.1);color:var(--indigo);">🤖</div>
+            <div class="why-title">Data-Driven Brand Intelligence</div>
+            <div class="why-text">Machine learning algorithms analyse your brand's digital footprint, forecast trends, and continuously optimise your strategy based on live performance data — not guesswork.</div>
+          </div>
+          <div class="why-card">
+            <div class="why-icon" style="background:rgba(168,85,247,0.1);color:var(--violet);">🌐</div>
+            <div class="why-title">End-to-End Digital Automation</div>
+            <div class="why-text">From content scheduling and SEO to reputation management and paid ads — every digital touchpoint handled by intelligent automation so your team stays focused on growth.</div>
+          </div>
+          <div class="why-card">
+            <div class="why-icon" style="background:rgba(249,115,22,0.1);color:var(--orange);">⚡</div>
+            <div class="why-title">Smart Personalisation at Scale</div>
+            <div class="why-text">Systems that learn your brand identity and audience, automatically adapt messaging for each channel, and optimise campaigns in real time for maximum conversion impact.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ PROCESS -->
+    <section id="process" class="process">
+      <div class="container">
+        <div class="process-header">
+          <p class="section-label center">Our Framework</p>
+          <h2 class="section-title">The AI-Enhanced SOSTAC+RACE Framework</h2>
+          <p class="section-sub">A proven 6-step methodology supercharged with AI — from situation analysis to continuous optimisation.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-num">S</div>
+            <div class="process-title">AI Situation Analysis</div>
+            <div class="process-text">Deploy ML algorithms to map your brand's digital DNA, automate competitive intelligence, and generate predictive market positioning with real-time data.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-num">O</div>
+            <div class="process-title">AI-Optimised Objectives</div>
+            <div class="process-text">Data-driven SMART goals using predictive analytics, automated KPI tracking, and AI-powered performance forecasting with continuous goal refinement.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-num">S</div>
+            <div class="process-title">Intelligent Strategy Design</div>
+            <div class="process-text">AI-driven customer journey mapping, automated audience segmentation, dynamic value proposition testing, and intelligent channel selection.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-num">T</div>
+            <div class="process-title">AI-Automated Tactics</div>
+            <div class="process-text">Deploy the RACE framework with intelligent automation across Reach, Act, Convert, and Engage — each stage optimised by AI in real time.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-num">A</div>
+            <div class="process-title">Automated Execution</div>
+            <div class="process-text">AI-powered task automation, intelligent timelines, and automated brand asset generation with smart content creation and multi-channel deployment.</div>
+          </div>
+          <div class="process-card">
+            <div class="process-num">C</div>
+            <div class="process-title">Intelligent Control</div>
+            <div class="process-text">Real-time AI monitoring, predictive KPI analysis, automated strategy refinement, and continuous machine learning optimisation with performance forecasting.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ RACE -->
+    <section class="race">
+      <div class="container">
+        <div class="race-header">
+          <p class="section-label">RACE Breakdown</p>
+          <h2 class="race-title">Four phases. One intelligent engine.</h2>
+          <p class="race-sub">Every customer interaction — from first impression to long-term loyalty — automated and optimised by AI.</p>
+        </div>
+
+        <div class="race-grid">
+          <div class="race-card">
+            <div class="race-letter">R</div>
+            <div class="race-word">Reach</div>
+            <div class="race-focus">AI-Powered Visibility</div>
+            <div class="race-actions">LLM optimisation, AI-driven SEO, smart ad targeting, influencer matching, automated PR distribution</div>
+          </div>
+          <div class="race-card">
+            <div class="race-letter">A</div>
+            <div class="race-word">Act</div>
+            <div class="race-focus">Intelligent Engagement</div>
+            <div class="race-actions">AI content generation, dynamic landing pages, chatbot interactions, automated social responses</div>
+          </div>
+          <div class="race-card">
+            <div class="race-letter">C</div>
+            <div class="race-word">Convert</div>
+            <div class="race-focus">Smart Conversions</div>
+            <div class="race-actions">AI-optimised CTAs, predictive retargeting, automated lead scoring, intelligent funnel optimisation</div>
+          </div>
+          <div class="race-card">
+            <div class="race-letter">E</div>
+            <div class="race-word">Engage</div>
+            <div class="race-focus">AI-Driven Loyalty</div>
+            <div class="race-actions">Automated email personalisation, AI community management, predictive advocacy, smart retention campaigns</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ SERVICES -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="services-header">
+          <p class="section-label center">Service Portfolio</p>
+          <h2 class="section-title">Everything your brand needs to dominate digitally</h2>
+          <p class="section-sub">Six AI-powered services that cover every dimension of your digital brand — end to end.</p>
+        </div>
+
+        <div class="svc-grid">
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(168,85,247,0.1);color:var(--violet);">🎨</div>
+            <div class="svc-title">Brand Discovery & Smart Identity</div>
+            <div class="svc-text">Complete AI-enhanced brand audit, strategic identity creation, and adaptive design systems that evolve with market trends and live audience data.</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(99,102,241,0.1);color:var(--indigo);">📱</div>
+            <div class="svc-title">Platform Management & Automation</div>
+            <div class="svc-text">Smart platform optimisation, automated content distribution, intelligent scheduling, and performance tuning across every digital touchpoint.</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(249,115,22,0.1);color:var(--orange);">✍</div>
+            <div class="svc-title">Content & Marketing Automation</div>
+            <div class="svc-text">AI content creation, automated SEO, intelligent ad targeting, and social media management with real-time performance adjustments for maximum impact.</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(34,197,94,0.1);color:#16a34a;">📢</div>
+            <div class="svc-title">Influencer Partnerships & Digital PR</div>
+            <div class="svc-text">Strategic influencer discovery, automated PR campaign management, smart media outreach, and relationship tracking for maximum brand amplification.</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(6,182,212,0.1);color:var(--cyan);">🎯</div>
+            <div class="svc-title">Brand Consistency & Messaging</div>
+            <div class="svc-text">Unified brand guidelines with automated enforcement, intelligent messaging frameworks, and consistent brand voice maintained across every platform.</div>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" style="background:rgba(239,68,68,0.1);color:#ef4444;">📈</div>
+            <div class="svc-title">Predictive Analytics & AI Insights</div>
+            <div class="svc-text">Real-time predictive analytics, automated performance optimisation, AI-generated insights, and intelligent forecasting with proactive strategy adjustments.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ CTA -->
+    <section id="get-started" class="cta-banner">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-grid">
+
+            <!-- Left: copy -->
+            <div>
+              <div class="cta-eyebrow">✦ Free Assessment</div>
+              <h2 class="cta-title">
+                Ready to transform<br>your <span class="grad">digital brand?</span>
+              </h2>
+              <p class="cta-desc">
+                Complete our Digital Brand Strategy Assessment and receive a customised AI-powered growth roadmap within 24 hours — no commitment required.
+              </p>
+              <div class="cta-checks">
+                <div class="cta-check">
+                  <div class="cta-check-icon">✓</div>
+                  Free comprehensive brand analysis
+                </div>
+                <div class="cta-check">
+                  <div class="cta-check-icon">✓</div>
+                  Personalised AI automation roadmap
+                </div>
+                <div class="cta-check">
+                  <div class="cta-check-icon">✓</div>
+                  Custom strategy proposal in 24 hours
+                </div>
+              </div>
+              <div class="cta-buttons">
+                <a href="https://form.jotform.com/252121444918050" target="_blank" class="btn btn-primary">
+                  Start My Free Assessment →
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: contact card -->
+            <div class="cta-info-card">
+              <div class="cta-info-title">Or get in touch directly</div>
+
+              <div class="cta-contact-item">
+                <div class="cta-contact-icon">✉</div>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:abhay@quantumtaskai.com">abhay@quantumtaskai.com</a>
+                </div>
+              </div>
+
+              <div class="cta-contact-item">
+                <div class="cta-contact-icon">📍</div>
+                <div>
+                  <h4>Office</h4>
+                  <p>Meydan Grandstand, 6th floor<br>Dubai, U.A.E.</p>
+                </div>
+              </div>
+
+              <div class="cta-contact-item">
+                <div class="cta-contact-icon">🔍</div>
+                <div>
+                  <h4>Free Site Audit</h4>
+                  <a href="https://audit.quantumtaskai.com">audit.quantumtaskai.com →</a>
+                </div>
+              </div>
+
+              <div class="cta-promise">
+                Leading the AI revolution in digital branding — where artificial intelligence meets brand excellence for unprecedented growth.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════ FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div>
+          <img src="img/logo.png" alt="Quantum Tasks AI" class="footer-logo-img" />
+          <p class="footer-desc">AI-powered automation, cybersecurity, and digital growth — built for businesses ready to move faster and compete smarter.</p>
+          <a href="mailto:abhay@quantumtaskai.com" class="footer-contact-link">✉ &nbsp;abhay@quantumtaskai.com</a>
+          <span class="footer-contact-link">📍 &nbsp;Dubai, UAE</span>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <div class="footer-links">
+            <a href="https://audit.quantumtaskai.com" class="footer-link">AI Site Auditor</a>
+            <a href="index.html#services" class="footer-link">Cybersecurity</a>
+            <a href="index.html#services" class="footer-link">AI Automation</a>
+            <a href="digital-branding.html" class="footer-link">Digital Branding</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <div class="footer-links">
+            <a href="index.html#about" class="footer-link">About Us</a>
+            <a href="https://blog.quantumtaskai.com/" class="footer-link">Blog</a>
+            <a href="index.html#contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Free Tools</div>
+          <div class="footer-links">
+            <a href="https://audit.quantumtaskai.com" class="footer-link">Free Site Audit</a>
+            <a href="digital-branding.html" class="footer-link">Branding Framework</a>
+            <a href="https://blog.quantumtaskai.com/" class="footer-link">AI Insights Blog</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Quantum Task AI LLC FZ · Dubai, UAE</span>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.style.opacity = '1';
+          el.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.why-card, .process-card, .race-card, .svc-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
+  </script>
+
 </body>
 </html>
