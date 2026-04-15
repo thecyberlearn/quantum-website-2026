@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — Quantum Tasks AI</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0a0f1e; color: #fff;
+      min-height: 100vh; display: flex; flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 40px 24px;
+      position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 40%, rgba(99,102,241,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 60%, rgba(249,115,22,0.12) 0%, transparent 60%);
+    }
+    .inner { position: relative; z-index: 1; max-width: 520px; }
+    .num {
+      font-size: clamp(96px, 20vw, 160px);
+      font-weight: 900; line-height: 1;
+      letter-spacing: -0.05em;
+      background: linear-gradient(135deg, #818cf8, #c084fc, #fb923c);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 16px;
+    }
+    h1 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; margin-bottom: 14px; }
+    p { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 36px; }
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: inherit; font-size: 15px; font-weight: 700;
+      padding: 13px 26px; border-radius: 10px; cursor: pointer;
+      border: none; text-decoration: none; transition: all .2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316, #ef4444);
+      color: #fff; box-shadow: 0 4px 20px rgba(249,115,22,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.5); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.08); color: #fff;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
+    footer {
+      text-align: center; padding: 20px;
+      font-size: 13px; color: rgba(255,255,255,0.3);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+<body>
+  <script src="/header.js"></script>
+  <div class="page">
+    <div class="inner">
+      <div class="num">404</div>
+      <h1>Page not found</h1>
+      <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+      <div class="btns">
+        <a href="/" class="btn btn-primary">Back to Home →</a>
+        <a href="https://audit.quantumtaskai.com" class="btn btn-ghost">Run a Free Audit</a>
+      </div>
+    </div>
+  </div>
+  <footer>© 2025 Quantum Task AI LLC FZ · Dubai, UAE</footer>
+</body>
+</html>

@@ -23,6 +23,23 @@
 
   // ─── Styles (matches static site css/style.css header) ──────────
   var css = `
+    .sh-skip {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: #6366f1;
+      color: #ffffff;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 6px;
+      z-index: 9999;
+      transition: top .15s;
+      text-decoration: none;
+    }
+    .sh-skip:focus { top: 16px; }
+
     #sh-header {
       background: #ffffff;
       border-bottom: 1px solid #e5e7eb;
@@ -189,6 +206,7 @@
 
   // ─── Build HTML ──────────────────────────────────────────────────
   var headerHTML =
+    '<a href="#main-content" class="sh-skip">Skip to content</a>' +
     '<header id="sh-header">' +
       '<div class="sh-inner">' +
         '<a href="' + HOME_URL + '" class="sh-logo">' +

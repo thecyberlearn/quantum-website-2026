@@ -15,4 +15,18 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://quantumtaskai.com/privacy.html</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://quantumtaskai.com/terms.html</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
