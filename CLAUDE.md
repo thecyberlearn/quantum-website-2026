@@ -4,7 +4,7 @@ This file provides guidance to Claude Code when working with code in this reposi
 
 ## Project Overview
 
-Static marketing website for Quantum Tasks AI, served via nginx in Docker and deployed via Dokploy with Traefik for SSL and routing.
+Static marketing website for Quantum Tasks AI, hosted on Hostinger shared hosting.
 
 ## File Structure
 
@@ -14,12 +14,10 @@ digital-branding.html   — AI Digital Branding services page (SOSTAC+RACE)
 privacy.html            — Privacy Policy
 terms.html              — Terms of Service
 404.html                — Custom 404 page
-shared-header.js               — Shared self-injecting header (loaded cross-domain)
+shared-header.js        — Shared self-injecting header (loaded cross-domain)
 robots.txt              — Search engine crawl instructions
 sitemap.xml             — XML sitemap (4 pages)
-Dockerfile              — nginx:alpine image
-docker-compose.yml      — Production config with Traefik labels
-nginx.conf              — nginx routing, caching headers, security headers, 404
+.htaccess               — Routing, caching headers, security headers, 404
 img/                    — logo.png, favicon.ico, favicon-*.png, apple-touch-icon.png, og-image.png
 ```
 
@@ -31,27 +29,23 @@ img/                    — logo.png, favicon.ico, favicon-*.png, apple-touch-ic
 - Auditor (audit.quantumtaskai.com): `<script src="https://quantumtaskai.com/shared-header.js">`
 
 To update nav links or colors across all apps — edit `shared-header.js` only.
+Cache is set to 1 hour via `.htaccess` so updates propagate automatically.
 
 ## Local Development
 
 ```bash
-# Simple static server
 python -m http.server 8000
-
-# Docker (matches production)
-docker build -t quantumtaskai-website .
-docker run -p 8080:80 quantumtaskai-website
 ```
 
 ## Deployment
 
-Deployed via Dokploy. Push to `main` branch triggers redeployment.
+Hosted on Hostinger. Push to `main` branch triggers redeployment.
 
 ```bash
 git push origin main
 ```
 
-Domains: `quantumtaskai.com` and `www.quantumtaskai.com` (www redirects to non-www).
+Domains: `quantumtaskai.com` and `www.quantumtaskai.com` (www redirects to non-www via `.htaccess`).
 
 ## Domain Strategy
 
@@ -64,7 +58,7 @@ Domains: `quantumtaskai.com` and `www.quantumtaskai.com` (www redirects to non-w
 ## Key URLs
 
 - Contact form: uses JotForm `https://form.jotform.com/252121444918050`
-- Email: `abhay@quantumtaskai.com`
+- Email: `info@quantumtaskai.com`
 - Address: Meydan Grandstand, 6th floor, Dubai, UAE
 
 ## Design System
@@ -80,10 +74,12 @@ Both `index.html` and `digital-branding.html` use an embedded `<style>` block wi
 
 No external CSS file — all styles are embedded per-page for simplicity.
 
-## nginx Features (nginx.conf)
+## .htaccess Features
 
-- HTML cached 1 hour, assets cached 1 year
+- HTML cached 1 hour, static assets cached 1 year
+- `shared-header.js` cached 1 hour (so updates propagate quickly)
 - Security headers: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection
 - Gzip compression enabled
 - Custom 404 page (`/404.html`)
-- www → non-www redirect
+- www → non-www 301 redirect
+- Clean URLs (serves `.html` files without extension)

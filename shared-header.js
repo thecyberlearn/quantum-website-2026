@@ -267,5 +267,5 @@
     a.addEventListener('click', closeMenu);
   });
 
-  console.log('Shared header loaded ✓');
+
 })();

@@ -831,7 +831,7 @@
         "name": "Quantum Task AI LLC FZ",
         "url": "https://quantumtaskai.com",
         "logo": "https://quantumtaskai.com/img/logo.png",
-        "email": "abhay@quantumtaskai.com",
+        "email": "info@quantumtaskai.com",
         "foundingDate": "2023",
         "description": "AI-powered automation, cybersecurity consulting, and digital branding for modern businesses.",
         "address": {
@@ -851,7 +851,7 @@
         "name": "Quantum Task AI LLC FZ",
         "url": "https://quantumtaskai.com",
         "image": "https://quantumtaskai.com/img/og-image.png",
-        "email": "abhay@quantumtaskai.com",
+        "email": "info@quantumtaskai.com",
         "priceRange": "$$",
         "description": "AI-powered automation, cybersecurity consulting, and digital branding for modern businesses in Dubai and globally.",
         "address": {
@@ -1275,7 +1275,7 @@
               Book a Consultation
             </a>
           </div>
-          <p class="cta-note">Or email us directly at <a href="mailto:abhay@quantumtaskai.com" style="color:rgba(255,255,255,0.5);text-decoration:underline;">abhay@quantumtaskai.com</a></p>
+          <p class="cta-note">Or email us directly at <a href="mailto:info@quantumtaskai.com" style="color:rgba(255,255,255,0.85);text-decoration:underline;">info@quantumtaskai.com</a></p>
         </div>
       </div>
     </section>
@@ -1293,7 +1293,11 @@
 
           <div class="form-card">
             <div class="form-title">Send us a message</div>
-            <form id="contactForm" method="post" action="#">
+            <form method="POST" action="https://formsubmit.co/info@quantumtaskai.com">
+              <input type="hidden" name="_subject" value="New enquiry from quantumtaskai.com">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none">
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label">Full Name *</label>
@@ -1332,7 +1336,7 @@
               <div class="c-icon">✉</div>
               <div>
                 <h4>Email</h4>
-                <a href="mailto:abhay@quantumtaskai.com">abhay@quantumtaskai.com</a>
+                <a href="mailto:info@quantumtaskai.com">info@quantumtaskai.com</a>
               </div>
             </div>
 
@@ -1353,9 +1357,9 @@
     <div class="container">
       <div class="footer-main">
         <div>
-          <img src="img/logo.png" alt="Quantum Tasks AI" class="footer-logo-img" />
+          <img src="img/logo.png" alt="Quantum Tasks AI" class="footer-logo-img" width="200" height="60" />
           <p class="footer-desc">AI-powered automation, cybersecurity, and digital growth — built for businesses ready to move faster and compete smarter.</p>
-          <a href="mailto:abhay@quantumtaskai.com" class="footer-contact-link">✉ &nbsp;abhay@quantumtaskai.com</a>
+          <a href="mailto:info@quantumtaskai.com" class="footer-contact-link">✉ &nbsp;info@quantumtaskai.com</a>
           <span class="footer-contact-link">📍 &nbsp;Dubai, UAE</span>
         </div>
         <div>
@@ -1396,21 +1400,6 @@
   </footer>
 
   <script>
-    // Form handler
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = this.querySelector('.form-submit');
-      btn.textContent = 'Message sent ✓';
-      btn.style.background = '#16a34a';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Send Message →';
-        btn.style.background = '';
-        btn.disabled = false;
-        this.reset();
-      }, 4000);
-    });
-
     // Scroll-triggered fade-in for sections
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
