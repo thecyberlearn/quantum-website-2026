@@ -1,107 +1,89 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code when working with code in this repository.
 
 ## Project Overview
 
-This is a static marketing website for Quantum Tasks AI, built with HTML/CSS/JavaScript and deployed using Docker/nginx. The site is containerized for deployment via Dokploy with Traefik reverse proxy handling SSL and routing.
+Static marketing website for Quantum Tasks AI, served via nginx in Docker and deployed via Dokploy with Traefik for SSL and routing.
 
-## Architecture
+## File Structure
 
-### Core Structure
-- `index.html` - Main homepage with hero section, company profile, services overview, and integrated contact form
-- `digital-branding.html` - AI Digital Branding services page with SOSTAC+RACE framework
-- `css/style.css` - Consolidated stylesheet with responsive design and CSS custom properties
-- `js/script.js` - Interactive functionality for forms, navigation, and animations
-
-### Deployment Architecture
-- **Static Site**: Served via nginx in Docker container
-- **Container**: Alpine-based nginx image with optimized caching headers
-- **Orchestration**: Docker Compose with Traefik labels for automatic SSL/routing
-- **Platform**: Dokploy deployment with domains `quantumtaskai.com` and `www.quantumtaskai.com`
-
-## Development Commands
-
-This is a static website with no build process - files are served directly by nginx.
-
-### Local Development
-```bash
-# Serve locally with any static server
-python -m http.server 8000
-# or
-npx serve .
+```
+index.html              — Homepage (dark navy hero, services, founders, contact)
+digital-branding.html   — AI Digital Branding services page (SOSTAC+RACE)
+privacy.html            — Privacy Policy
+terms.html              — Terms of Service
+404.html                — Custom 404 page
+header.js               — Shared self-injecting header (loaded cross-domain)
+robots.txt              — Search engine crawl instructions
+sitemap.xml             — XML sitemap (4 pages)
+Dockerfile              — nginx:alpine image
+docker-compose.yml      — Production config with Traefik labels
+nginx.conf              — nginx routing, caching headers, security headers, 404
+img/                    — logo.png, favicon.ico, favicon-*.png, apple-touch-icon.png, og-image.png
 ```
 
-### Docker Development
+## Shared Header
+
+`header.js` is a self-injecting IIFE loaded by all Quantum Tasks AI apps:
+- Static site: `<script src="/header.js">`
+- Blog (blog.quantumtaskai.com): `<script src="https://quantumtaskai.com/header.js">`
+- Auditor (audit.quantumtaskai.com): `<script src="https://quantumtaskai.com/header.js">`
+
+To update nav links or colors across all apps — edit `header.js` only.
+
+## Local Development
+
 ```bash
-# Build and run locally
+# Simple static server
+python -m http.server 8000
+
+# Docker (matches production)
 docker build -t quantumtaskai-website .
 docker run -p 8080:80 quantumtaskai-website
-
-# Using docker-compose
-docker-compose up --build
 ```
 
-### Deployment
+## Deployment
+
+Deployed via Dokploy. Push to `main` branch triggers redeployment.
+
 ```bash
-# Deploy to Dokploy (production)
-# Uses dokploy.json configuration for automatic deployment
-git push origin main  # Triggers deployment if configured
-
-# Test deployment locally
-docker-compose -f docker-compose.test.yml up --build
+git push origin main
 ```
 
-## Key Integration Points
+Domains: `quantumtaskai.com` and `www.quantumtaskai.com` (www redirects to non-www).
 
-### External Links
-- AI Marketplace: Links point to `https://aiagent.quantumtaskai.com/agents/` (Django app)
-- Authentication: Separate login/register buttons link to Django auth endpoints
+## Domain Strategy
 
-### Contact Form
-- Integrated into homepage `#contact` section
-- Client-side validation implemented in `js/script.js`
-- Ready for Netlify Forms, Formspree, or Django backend integration
-- Demo success message shows on submission
+| Domain | What it is |
+|---|---|
+| `quantumtaskai.com` | This static site |
+| `audit.quantumtaskai.com` | Site Auditor (separate Django app) |
+| `blog.quantumtaskai.com` | Blog (separate Django app) |
 
-### Domain Strategy
-- `quantumtaskai.com` - Static marketing site (this repository)
-- `aiagent.quantumtaskai.com` - Django AI marketplace (separate application)
-- `www.quantumtaskai.com` - Redirects to main domain
+## Key URLs
 
-## Configuration Files
+- Contact form: uses JotForm `https://form.jotform.com/252121444918050`
+- Email: `abhay@quantumtaskai.com`
+- Address: Meydan Grandstand, 6th floor, Dubai, UAE
 
-### Docker Configuration
-- `Dockerfile` - nginx Alpine image with security headers and caching
-- `docker-compose.yml` - Production configuration with Traefik labels
-- `docker-compose.test.yml` - Test configuration without domain dependencies
+## Design System
 
-### Deployment Configuration
-- `dokploy.json` - Dokploy platform configuration with domains, SSL, monitoring
-- `dokploy.test.json` - Test environment configuration
-- `DEPLOYMENT.md` - Comprehensive deployment guide for multiple platforms
+Both `index.html` and `digital-branding.html` use an embedded `<style>` block with shared CSS variables:
 
-## Assets Requirements
+```css
+--navy: #0a0f1e   /* hero backgrounds */
+--indigo: #6366f1  /* primary accent */
+--violet: #a855f7  /* secondary accent */
+--orange: #f97316  /* CTA buttons */
+```
 
-The `img/` directory should contain:
-- `logo.png` - Company logo (200x60px recommended)
-- `favicon.ico` - Website favicon (32x32px)
-- `og-image.png` - Social media preview (1200x630px)
-- Additional favicon sizes for mobile devices
+No external CSS file — all styles are embedded per-page for simplicity.
 
-## Performance Features
+## nginx Features (nginx.conf)
 
-- Static file caching (1 year for assets, 1 hour for HTML)
-- Security headers (X-Frame-Options, X-Content-Type-Options, X-XSS-Protection)
-- Responsive images and mobile-first CSS
-- Optimized font loading with preload
-- Minified and consolidated CSS/JS
-
-## SEO & Marketing
-
-- Structured data markup for business information
-- OpenGraph meta tags for social sharing
-- Proper heading hierarchy and semantic HTML
-- Mobile-responsive design
-- Contact form integration for lead capture
-- Service pages optimized for AI/cybersecurity keywords
+- HTML cached 1 hour, assets cached 1 year
+- Security headers: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection
+- Gzip compression enabled
+- Custom 404 page (`/404.html`)
+- www → non-www redirect

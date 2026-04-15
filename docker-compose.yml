@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.quantumweb.rule=Host(`quantumtaskai.com`) || Host(`www.quantumtaskai.com`)"
+      - "traefik.http.routers.quantumweb.entrypoints=websecure"
+      - "traefik.http.routers.quantumweb.tls.certresolver=letsencrypt"
+      - "traefik.http.services.quantumweb.loadbalancer.server.port=80"
+      # www → non-www redirect
+      - "traefik.http.middlewares.www-redirect.redirectregex.regex=^https://www\\.quantumtaskai\\.com/(.*)"
+      - "traefik.http.middlewares.www-redirect.redirectregex.replacement=https://quantumtaskai.com/$${1}"
+      - "traefik.http.middlewares.www-redirect.redirectregex.permanent=true"
+      - "traefik.http.routers.quantumweb.middlewares=www-redirect"
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
