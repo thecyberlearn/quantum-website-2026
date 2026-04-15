@@ -1,8 +1,8 @@
 /*
-  Shared Header — hosted at https://quantumtaskai.com/header.js
+  Shared Header — hosted at https://quantumtaskai.com/shared-header.js
   Update nav links and colors in this file only.
   All connected apps will reflect changes on next page load.
-  To bust cache after updates, add ?v=2 to the script src.
+  Cache: 1 hour (set via .htaccess) — no version bumps needed.
 */
 
 (function () {

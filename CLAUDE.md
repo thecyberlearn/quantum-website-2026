@@ -14,7 +14,7 @@ digital-branding.html   — AI Digital Branding services page (SOSTAC+RACE)
 privacy.html            — Privacy Policy
 terms.html              — Terms of Service
 404.html                — Custom 404 page
-header.js               — Shared self-injecting header (loaded cross-domain)
+shared-header.js               — Shared self-injecting header (loaded cross-domain)
 robots.txt              — Search engine crawl instructions
 sitemap.xml             — XML sitemap (4 pages)
 Dockerfile              — nginx:alpine image
@@ -25,12 +25,12 @@ img/                    — logo.png, favicon.ico, favicon-*.png, apple-touch-ic
 
 ## Shared Header
 
-`header.js` is a self-injecting IIFE loaded by all Quantum Tasks AI apps:
-- Static site: `<script src="/header.js">`
-- Blog (blog.quantumtaskai.com): `<script src="https://quantumtaskai.com/header.js">`
-- Auditor (audit.quantumtaskai.com): `<script src="https://quantumtaskai.com/header.js">`
+`shared-header.js` is a self-injecting IIFE loaded by all Quantum Tasks AI apps:
+- Static site: `<script src="/shared-header.js">`
+- Blog (blog.quantumtaskai.com): `<script src="https://quantumtaskai.com/shared-header.js">`
+- Auditor (audit.quantumtaskai.com): `<script src="https://quantumtaskai.com/shared-header.js">`
 
-To update nav links or colors across all apps — edit `header.js` only.
+To update nav links or colors across all apps — edit `shared-header.js` only.
 
 ## Local Development
 

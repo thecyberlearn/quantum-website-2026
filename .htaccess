@@ -1,0 +1,55 @@
+Options -Indexes
+
+# ── Routing: clean URLs ──────────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # www → non-www redirect
+  RewriteCond %{HTTP_HOST} ^www\.quantumtaskai\.com [NC]
+  RewriteRule ^(.*)$ https://quantumtaskai.com/$1 [R=301,L]
+
+  # Serve .html files without extension
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# ── Custom 404 ────────────────────────────────────────────────────
+ErrorDocument 404 /404.html
+
+# ── Security headers ─────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # ── Caching: HTML (1 hour) ──────────────────────────────────────
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+
+  # ── Caching: Static assets (1 year) ────────────────────────────
+  <FilesMatch "\.(ico|png|jpg|jpeg|webp|gif|svg|woff|woff2|ttf|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # ── Caching: JS (1 year) ────────────────────────────────────────
+  <FilesMatch "\.js$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # ── Caching: shared-header.js (1 hour — overrides JS rule above)
+  <FilesMatch "^shared-header\.js$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ── Gzip compression ─────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
