@@ -225,47 +225,43 @@
     '</header>';
 
   // ─── Inject header at top of body ───────────────────────────────
-  // Guard: if script runs before <body> exists (e.g. loaded from <head>),
-  // wait for DOM ready instead of crashing
-  function inject() {
-    if (document.body) {
-      document.body.insertAdjacentHTML('afterbegin', headerHTML);
+  // ─── Inject + wire up hamburger ─────────────────────────────────
+  function injectAndInit() {
+    if (!document.body) return;
+    document.body.insertAdjacentHTML('afterbegin', headerHTML);
+
+    var burger = document.getElementById('sh-burger');
+    var nav    = document.getElementById('sh-nav');
+    if (!burger || !nav) return;
+
+    function closeMenu() {
+      nav.classList.remove('sh-open');
+      burger.setAttribute('aria-expanded', 'false');
     }
+
+    burger.addEventListener('click', function () {
+      var open = nav.classList.toggle('sh-open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!document.getElementById('sh-header').contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
   }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', inject);
+    document.addEventListener('DOMContentLoaded', injectAndInit);
   } else {
-    inject();
+    injectAndInit();
   }
-
-  // ─── Hamburger logic ─────────────────────────────────────────────
-  var burger = document.getElementById('sh-burger');
-  var nav    = document.getElementById('sh-nav');
-
-  // Guard: bail out cleanly if injection failed for any reason
-  if (!burger || !nav) return;
-
-  function closeMenu() {
-    nav.classList.remove('sh-open');
-    burger.setAttribute('aria-expanded', 'false'); // always string
-  }
-
-  burger.addEventListener('click', function () {
-    var open = nav.classList.toggle('sh-open');
-    burger.setAttribute('aria-expanded', String(open)); // string 'true'/'false'
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!document.getElementById('sh-header').contains(e.target)) closeMenu();
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeMenu();
-  });
-
-  nav.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', closeMenu);
-  });
 
 
 })();
