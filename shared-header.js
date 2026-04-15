@@ -54,14 +54,14 @@
     .sh-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: 6px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .sh-logo img {
-      height: 60px;
+      height: 80px;
       width: auto;
       display: block;
     }
@@ -150,7 +150,7 @@
 
       .sh-inner { position: relative; }
 
-      .sh-logo img { height: 40px; }
+      .sh-logo img { height: 52px; }
 
       .sh-nav {
         display: none;
@@ -210,7 +210,7 @@
     '<header id="sh-header">' +
       '<div class="sh-inner">' +
         '<a href="' + HOME_URL + '" class="sh-logo">' +
-          '<img src="' + LOGO_URL + '" alt="Quantum Tasks AI" height="60" loading="eager" fetchpriority="high">' +
+          '<img src="' + LOGO_URL + '" alt="Quantum Tasks AI" height="80" loading="eager" fetchpriority="high">' +
         '</a>' +
         '<nav aria-label="Main navigation">' +
           '<ul class="sh-nav" id="sh-nav">' + buildNavItems() + '</ul>' +
