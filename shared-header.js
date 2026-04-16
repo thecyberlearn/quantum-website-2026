@@ -61,7 +61,7 @@
     }
 
     .sh-logo img {
-      height: 80px;
+      height: 65px;
       width: auto;
       display: block;
     }
@@ -210,7 +210,7 @@
     '<header id="sh-header">' +
       '<div class="sh-inner">' +
         '<a href="' + HOME_URL + '" class="sh-logo">' +
-          '<img src="' + LOGO_URL + '" alt="Quantum Tasks AI" height="80" loading="eager" fetchpriority="high">' +
+          '<img src="' + LOGO_URL + '" alt="Quantum Tasks AI" height="65" loading="eager" fetchpriority="high">' +
         '</a>' +
         '<nav aria-label="Main navigation">' +
           '<ul class="sh-nav" id="sh-nav">' + buildNavItems() + '</ul>' +
