@@ -214,7 +214,7 @@
         '<nav aria-label="Main navigation">' +
           '<ul class="sh-nav" id="sh-nav">' + buildNavItems() + '</ul>' +
         '</nav>' +
-        '<a href="https://marketplace.quantumtaskai.com" class="sh-cta">Free Audit →</a>' +
+        '<a href="https://marketplace.quantumtaskai.com/audit/" class="sh-cta">Free Audit →</a>' +
         '<button class="sh-burger" id="sh-burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sh-nav">' +
           '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">' +
             '<path d="M3 5h16M3 11h16M3 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
