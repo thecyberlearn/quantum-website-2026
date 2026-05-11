@@ -18,7 +18,7 @@
     { label: 'Marketplace',        url: 'https://quantumtaskai.com/marketplace.html' },
     { label: 'AI Digital Branding', url: 'https://quantumtaskai.com/digital-branding.html' },
     { label: 'Blog',               url: 'https://blog.quantumtaskai.com/' },
-    { label: 'Site Auditor',       url: 'https://audit.quantumtaskai.com' },
+    { label: 'Site Auditor',       url: 'https://marketplace.quantumtaskai.com' },
   ];
 
   // ─── Styles (matches static site css/style.css header) ──────────
@@ -215,7 +215,7 @@
         '<nav aria-label="Main navigation">' +
           '<ul class="sh-nav" id="sh-nav">' + buildNavItems() + '</ul>' +
         '</nav>' +
-        '<a href="https://audit.quantumtaskai.com" class="sh-cta">Free Audit →</a>' +
+        '<a href="https://marketplace.quantumtaskai.com" class="sh-cta">Free Audit →</a>' +
         '<button class="sh-burger" id="sh-burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sh-nav">' +
           '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">' +
             '<path d="M3 5h16M3 11h16M3 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
