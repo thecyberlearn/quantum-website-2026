@@ -47,3 +47,9 @@ logs/
 
 # Claude Code working directory
 .claude/
+
+# Local working files
+DESIGN.md
+index-linear.html
+linear.app/
+marketplace-audit.html

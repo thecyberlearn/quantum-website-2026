@@ -15,10 +15,10 @@
 
   var NAV_LINKS = [
     { label: 'Home',               url: 'https://quantumtaskai.com' },
+    { label: 'Marketplace',        url: 'https://quantumtaskai.com/marketplace.html' },
     { label: 'AI Digital Branding', url: 'https://quantumtaskai.com/digital-branding.html' },
     { label: 'Blog',               url: 'https://blog.quantumtaskai.com/' },
     { label: 'Site Auditor',       url: 'https://audit.quantumtaskai.com' },
-    
   ];
 
   // ─── Styles (matches static site css/style.css header) ──────────
