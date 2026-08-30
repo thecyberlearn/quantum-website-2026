@@ -753,6 +753,51 @@
     .c-promise-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
     .c-promise-text { font-size: 14px; color: var(--gray500); line-height: 1.65; }
 
+    /* ════════════════════════════════ TRUST BAND */
+    .trust-band {
+      background: var(--gray50);
+      padding: 72px 0;
+      border-top: 1px solid var(--gray200);
+    }
+    .trust-band-label {
+      text-align: center; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gray500); margin-bottom: 44px;
+    }
+    .trust-band-logos {
+      display: flex; flex-wrap: nowrap;
+      align-items: stretch; justify-content: center;
+      gap: 20px; max-width: 1160px; margin: 0 auto;
+      overflow-x: auto; padding: 4px 24px 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .trust-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--white); border: 1px solid var(--gray200);
+      border-radius: 18px; padding: 12px 14px; min-height: 168px; flex: 0 0 auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .trust-badge img { width: auto; display: block; }
+    /* Circular / square marks read smaller — give them more height */
+    .trust-badge--square img { height: 142px; }
+    /* Wide wordmark banners — shorter so widths stay balanced */
+    .trust-badge--wide img { height: 76px; }
+    /* Self-contained badge cards (already have their own frame) */
+    .trust-badge--card img { height: 126px; }
+    a.trust-badge:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg); border-color: var(--indigo);
+    }
+    @media (max-width: 700px) {
+      .trust-band { padding: 48px 0; }
+      .trust-band-logos { gap: 14px; justify-content: flex-start; padding: 4px 20px 12px; }
+      .trust-badge { padding: 10px 12px; min-height: 124px; border-radius: 14px; }
+      .trust-badge--square img { height: 96px; }
+      .trust-badge--wide img { height: 54px; }
+      .trust-badge--card img { height: 84px; }
+    }
+
     /* ════════════════════════════════ FOOTER */
     .footer { background: var(--navy); padding: 72px 0 32px; }
 
@@ -1358,6 +1403,30 @@
     </section>
 
   </main>
+
+  <!-- ══════════════════════════════════════ TRUST BAND -->
+  <section class="trust-band" aria-label="Security, compliance and recognition">
+    <div class="container">
+      <p class="trust-band-label">Security, Compliance &amp; Recognition</p>
+      <div class="trust-band-logos">
+        <span class="trust-badge trust-badge--square" title="CSA STAR Level One — Self-Assessment (Security, Trust, Assurance &amp; Risk)">
+          <img src="img/csa-star-level-one.png" alt="CSA STAR Level One — Self-Assessment" loading="lazy" width="120" height="120" />
+        </span>
+        <span class="trust-badge trust-badge--square" title="CSA AI Trustworthy Pledge 2026">
+          <img src="img/ai-trustworthy-pledge-2026.png" alt="Cloud Security Alliance — AI Trustworthy Pledge 2026" loading="lazy" width="120" height="120" />
+        </span>
+        <a class="trust-badge trust-badge--square" href="https://dub.ai/ai-seal" target="_blank" rel="noopener" title="Dubai AI Seal — Verified AI Supplier (Tier E)">
+          <img src="img/dubai-ai-seal.png" alt="Dubai AI Seal — Verified AI Supplier" loading="lazy" width="120" height="120" />
+        </a>
+        <span class="trust-badge trust-badge--card" title="Claude Partner Network — Official Services Partner">
+          <img src="img/claude-partner-badge-v2.png" alt="Claude Partner Network — Official Services Partner" loading="lazy" width="188" height="104" />
+        </span>
+        <a class="trust-badge trust-badge--wide" href="https://www.onetcenter.org" target="_blank" rel="noopener" title="O*NET in it — U.S. Department of Labor / Employment and Training Administration">
+          <img src="img/onet-in-it.png" alt="O*NET in it" loading="lazy" width="139" height="64" />
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ══════════════════════════════════════ FOOTER -->
   <footer class="footer">
