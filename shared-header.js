@@ -18,6 +18,7 @@
     { label: 'Marketplace',        url: 'https://marketplace.quantumtaskai.com' },
     { label: 'AI Digital Branding', url: 'https://quantumtaskai.com/digital-branding.html' },
     { label: 'Blog',               url: 'https://blog.quantumtaskai.com/' },
+    { label: 'Help',               url: 'https://help.quantumtaskai.com/' },
   ];
 
   // ─── Styles (matches static site css/style.css header) ──────────
